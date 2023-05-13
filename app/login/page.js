@@ -6,7 +6,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { useRouter } from "next/navigation";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Slide = ({ warm, title, desc, img }) => {
   let bgColor, textColor, subTextColor;
