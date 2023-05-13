@@ -64,8 +64,8 @@ const baloo = localFont({
 
 export default function Page() {
   const [route, setRoute] = useState();
+  const router = useRouter();
   useEffect(() => {
-    const router = useRouter();
     router.push(route);
   }, [route]);
   return (
