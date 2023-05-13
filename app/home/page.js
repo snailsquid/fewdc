@@ -8,7 +8,6 @@ import Link from "next/link";
 import { motion, AnimatePresence, useAnimate } from "framer-motion";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRouter } from "next/navigation";
 import cities from "../../public/cities.json";
 
 const Shop = ({ img, title, stars, road, mtc }) => {
@@ -71,7 +70,6 @@ const Slide = ({
   setOpen,
   setCity,
 }) => {
-  const router = useRouter();
   return (
     <motion.div
       whileHover={{

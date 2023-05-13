@@ -6,6 +6,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { useRouter } from "next/navigation";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
+import { useEffect } from "react";
 
 const Slide = ({ warm, title, desc, img }) => {
   let bgColor, textColor, subTextColor;
@@ -62,7 +63,11 @@ const baloo = localFont({
 });
 
 export default function Page() {
-  const router = useRouter()
+  const [route, setRoute] = useState();
+  useEffect(() => {
+    const router = useRouter();
+    router.push(route);
+  }, [route]);
   return (
     <main className={`bg-page-bg h-screen w-screen ${poppins.className}`}>
       <div className="text-welcome-text relative z-10 flex lg:h-full p-10 flex-col lg:flex-row justify-center items-center gap-0 lg:gap-28">
@@ -94,7 +99,10 @@ export default function Page() {
             </div>
             <div
               className={`bg-[#FECB89] relative text-xl md:text-2xl w-fit px-8 py-1 md:px-9 md:py-2 rounded-full ${baloo.className} hover:drop-shadow-lg transition-all cursor-pointer`}
-            onClick={()=>{router.push("/home")}}>
+              onClick={() => {
+                setRoute("/home");
+              }}
+            >
               Login
             </div>
           </div>
