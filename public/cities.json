@@ -1,0 +1,187 @@
+{
+  "bandung":{
+    "Surabi":
+    [{
+      "title": "Surabi Abah",
+      "road": "Jalan Moh. Toha",
+      "stars": 2,
+      "img": "/img/shops/Bandung/surabi/surabi_1.png"
+    },
+    {
+      "title": "Batagor Umi",
+      "road": "Jalan Moh. Oha",
+      "stars": 3,
+      "img": "/img/shops/Bandung/surabi/surabi_2.png"
+    },
+    {
+      "title": "Batagor Berkah",
+      "road": "Jalan Moh. Aha",
+      "stars": 4,
+      "img": "/img/shops/Bandung/surabi/surabi_3.png"
+    }],
+    "Batagor":[
+      {
+        "title": "Batagor Enaakk",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Bandung/batagor/batagor_1.png"
+      },
+      {
+        "title": "Batagor Lebih Enak",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Bandung/batagor/batagor_2.png"
+      },
+      {
+        "title": "Batagor Paling Enak",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Bandung/batagor/batagor_3.png"
+      }
+    ],
+    "Siomay":[
+      {
+        "title": "Siomay Boss",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Bandung/siomay/siomay_1.png"
+      },
+      {
+        "title": "Siomay Heaven",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Bandung/siomay/siomay_2.png"
+      },
+      {
+        "title": "Siomay Station",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Bandung/siomay/siomay_3.png"
+      }
+    ]
+  },
+  "jogja":{
+    "Bakpia": [
+      {
+        "title": "Bakpia Legit",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jogja/bakpia/bakpia_1.png"
+      },
+      {
+        "title": "Bakpia Lebih Legit",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jogja/bakpia/bakpia_2.png"
+      },
+      {
+        "title": "Bakpia Legit Banget",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jogja/bakpia/bakpia_3.png"
+      }
+    ],
+    "SateKlatak":[
+      {
+        "title": "Sate Klatak",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jogja/sate/sate_1.png"
+      },
+      {
+        "title": "Sate Klatak Klutuk",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jogja/sate/sate_2.png"
+      },
+      {
+        "title": "Sate Klatak Klotak",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jogja/sate/sate_3.png"
+      }
+    ],
+    "Gudeg":[
+      {
+        "title": "Gudeg",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jogja/gudeg/gudeg_1.png"
+      },
+      {
+        "title": "Gudegh",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jogja/gudeg/gudeg_2.png"
+      },
+      {
+        "title": "Gudeghhh",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jogja/gudeg/gudeg_3.png"
+      }
+    ]
+  },
+  "jakarta":{
+    "SotoBetawi": [
+      {
+        "title": "Soto Betawi",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jakarta/soto/soto_1.png"
+      },
+      {
+        "title": "Soto Betawi B",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jakarta/soto/soto_2.png"
+      },
+      {
+        "title": "Soto Betawi C",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jakarta/soto/soto_3.png"
+      }
+    ],
+    "Ketoprak":[
+      {
+        "title": "Ketoprak Rasa",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jakarta/ketoprak/ketoprak_1.png"
+      },
+      {
+        "title": "Ketoprak Jaya",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jakarta/ketoprak/ketoprak_2.png"
+      },
+      {
+        "title": "Ketoprak Makmur",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jakarta/ketoprak/ketoprak_3.png"
+      }
+    ],
+    "KerakTelor":[
+      {
+        "title": "Kerak Telor",
+        "road": "Jalan Moh. Toha",
+        "stars": 2,
+        "img": "/img/shops/Jakarta/keraktelor/kerak_1.png"
+      },
+      {
+        "title": "Kerak Telorhhh",
+        "road": "Jalan Moh. Oha",
+        "stars": 3,
+        "img": "/img/shops/Jakarta/keraktelor/kerak_2.png"
+      },
+      {
+        "title": "Kerak Telorhhhhkkk",
+        "road": "Jalan Moh. Aha",
+        "stars": 4,
+        "img": "/img/shops/Jakarta/keraktelor/kerak_3.png"
+      }
+    ]
+  }
+}
