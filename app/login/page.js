@@ -25,8 +25,8 @@ const Slide = ({ warm, title, desc, img }) => {
       <div
         className={
           warm
-            ? `bg-[#FECB89] h-80 rounded-3xl p-5 justify-center flex flex-col text-center border border-white drop-shadow-xl`
-            : `bg-[#6C8B95] h-80 rounded-3xl p-5 justify-center flex flex-col text-center border border-white drop-shadow-xl`
+            ? `bg-[#FECB89] h-80 rounded-3xl p-5 justify-center flex flex-col text-center outline-1 outline outline-white drop-shadow-xl`
+            : `bg-[#6C8B95] h-80 rounded-3xl p-5 justify-center flex flex-col text-center outline-1 outline outline-white drop-shadow-xl`
         }
       >
         <img

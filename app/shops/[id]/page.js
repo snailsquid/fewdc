@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Poppins } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import { NumericFormat } from "react-number-format";
 import { useRouter } from "next/navigation";
@@ -49,6 +49,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "400"],
+  variable: "--font-montserrat",
+});
+
 export default function Page({ params, searchParams }) {
   const food = params.id;
   const stars = searchParams.stars;
@@ -71,7 +78,7 @@ export default function Page({ params, searchParams }) {
     }
   }
   return (
-    <div className="w-screen h-fit bg-[#F5F5F5]">
+    <div className={`w-screen h-fit bg-[#F5F5F5] ${montserrat.className}`}>
       <nav className="w-full absolute flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50">
         <div className="invisible absolute lg:relative lg:visible">logo</div>
         <div className="flex gap-12 text-md lg:text-2xl font-bold text-welcome-text">

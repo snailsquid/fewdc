@@ -40,10 +40,10 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
           `/shops/${food}?title=${title}&stars=${stars}&road=${road}&index=${index}&city=${city}`
         );
       }}
-      className="w-96 lg:w-[32rem] cursor-pointer hover:-translate-y-5 transition-all bg-[#F5F5F5] rounded-2xl border-white border-2 neumorph"
+      className="w-72 lg:w-[32rem] cursor-pointer hover:-translate-y-5 transition-all bg-[#F5F5F5] rounded-2xl outline-1 outline outline-white neumorph"
     >
       <img src={img} className="w-full h-32 rounded-2xl" alt="" />
-      <div className="px-9 flex flex-row justify-between py-4">
+      <div className="px-4 lg:px-9 flex flex-row justify-between py-4">
         <div className="">
           <div
             className={`${poppins.className} font-bold`}
@@ -66,7 +66,7 @@ const MenuButton = ({ name, set, mtc, setted }) => {
         set(name);
       }}
       id={name}
-      className="menu-buttons menu-button-unselected"
+      className="menu-buttons text-sm lg:text-md menu-button-unselected"
       style={{
         color: setted == name ? "#ffffff" : mtc,
         borderColor: mtc,
@@ -392,7 +392,7 @@ export default function Page() {
         </div>
       </AnimatePresence>
       <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-between xl:justify-centeritems-center gap-0 lg:gap-28">
-        <div className="items-center h-screen lg:h-full md:items-start justify-center flex flex-col py-5 relative z-10">
+        <div className="items-center lg:h-full md:items-start justify-center flex flex-col py-32 relative z-10">
           <div>
             <div
               className={`${baloo.className} text-4xl md:text-8xl text-home-text`}
