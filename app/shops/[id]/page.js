@@ -90,13 +90,13 @@ export default function Page({ params, searchParams }) {
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/about"
           >
             About
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/article"
           >
             Article
           </Link>
@@ -195,10 +195,13 @@ export default function Page({ params, searchParams }) {
           />
         </div>
         <div className="fixed bottom-0  w-full left-0 flex justify-center">
-          <div className="bg-[#FECB89] cursor-pointer hover:-translate-y-2 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between ">
+          <Link
+            href={"/checkout"}
+            className="bg-[#FECB89] cursor-pointer hover:-translate-y-2 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between "
+          >
             <span>8 Items</span>
             <span>Rp100.000</span>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

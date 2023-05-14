@@ -33,13 +33,13 @@ export default function Page() {
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/about"
           >
             About
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/article"
           >
             Article
           </Link>

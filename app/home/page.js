@@ -229,20 +229,20 @@ export default function Page() {
             className="before:absolute before:w-12 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
             href="/home"
             onClick={() => {
-              window.location.reload();
+              window.location.reload(true);
             }}
           >
             Home
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/about"
           >
             About
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/article"
           >
             Article
           </Link>

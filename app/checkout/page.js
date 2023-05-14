@@ -2,13 +2,6 @@ import Link from "next/link";
 import { Montserrat, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "400"],
-  variable: "--font-montserrat",
-});
-
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -65,13 +58,13 @@ export default function Page() {
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/about"
           >
             About
           </Link>
           <Link
             className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
+            href="/article"
           >
             Article
           </Link>
