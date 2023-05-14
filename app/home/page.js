@@ -40,7 +40,7 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
           `/shops/${food}?title=${title}&stars=${stars}&road=${road}&index=${index}&city=${city}`
         );
       }}
-      className="w-96 lg:w-[32rem] bg-[#F5F5F5] rounded-2xl border-white border-2 neumorph"
+      className="w-96 lg:w-[32rem] cursor-pointer hover:-translate-y-5 transition-all bg-[#F5F5F5] rounded-2xl border-white border-2 neumorph"
     >
       <img src={img} className="w-full h-32 rounded-2xl" alt="" />
       <div className="px-9 flex flex-row justify-between py-4">

@@ -27,7 +27,7 @@ const Card = ({ title, price, img, desc }) => {
             className="bg-transparent w-fit"
           />
           <div
-            className={`bg-[#FECB89] text-sm font-thin flex items-center px-3 rounded-full text-welcome-text ${baloo.className}`}
+            className={`bg-[#FECB89] text-sm font-thin flex items-center px-3 rounded-full text-welcome-text cursor-pointer ${baloo.className}`}
           >
             Add
           </div>
@@ -117,22 +117,38 @@ export default function Page({ params, searchParams }) {
             <h1 className="text-welcome-text font-bold text-xl w-full text-left max-w-sm">
               Vouchers
             </h1>
-            <div className="bg-main-text py-4 px-6 max-w-sm w-full rounded-2xl flex flex-row justify-between items-end">
+            <div className="bg-main-text py-4 px-6 max-w-sm w-full rounded-2xl flex flex-row justify-between items-end relative">
+              <div className="absolute left-0 flex justify-center flex-col items-center h-full top-0">
+                <div className=" bg-[#F5F5F5] rounded-tr-full w-3 h-3 "></div>
+                <div className=" bg-[#F5F5F5] rounded-br-full w-3 h-3 "></div>
+              </div>
+              <div className="absolute right-0 flex justify-center flex-col items-center h-full top-0">
+                <div className=" bg-[#F5F5F5] rounded-tl-full w-3 h-3 "></div>
+                <div className=" bg-[#F5F5F5] rounded-bl-full w-3 h-3 "></div>
+              </div>
               <div>
                 Diskon <br /> 10%
               </div>
               <div
-                className={`bg-white rounded-full text-sm text-main-text px-3 py-1 ${baloo.className}`}
+                className={`bg-white rounded-full text-sm text-main-text px-3 cursor-pointer py-1 ${baloo.className}`}
               >
                 Pakai
               </div>
             </div>
-            <div className="bg-main-text py-4 px-6 max-w-sm w-full rounded-2xl flex flex-row justify-between items-end">
+            <div className="relative bg-main-text py-4 px-6 max-w-sm w-full rounded-2xl flex flex-row justify-between items-end">
+              <div className="absolute left-0 flex justify-center flex-col items-center h-full top-0">
+                <div className=" bg-[#F5F5F5] rounded-tr-full w-3 h-3 "></div>
+                <div className=" bg-[#F5F5F5] rounded-br-full w-3 h-3 "></div>
+              </div>
+              <div className="absolute right-0 flex justify-center flex-col items-center h-full top-0">
+                <div className=" bg-[#F5F5F5] rounded-tl-full w-3 h-3 "></div>
+                <div className=" bg-[#F5F5F5] rounded-bl-full w-3 h-3 "></div>
+              </div>
               <div>
                 Diskon <br /> 20%
               </div>
               <div
-                className={`bg-white rounded-full text-sm text-main-text px-3 py-1 ${baloo.className}`}
+                className={`bg-white rounded-full text-sm text-main-text px-3 py-1 cursor-pointer ${baloo.className}`}
               >
                 Pakai
               </div>
@@ -170,6 +186,12 @@ export default function Page({ params, searchParams }) {
             price={19000}
             img={"/img/BatagorKacang.png"}
           />
+        </div>
+        <div className="fixed bottom-0  w-full left-0 flex justify-center">
+          <div className="bg-[#FECB89] cursor-pointer hover:-translate-y-2 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between ">
+            <span>8 Items</span>
+            <span>Rp100.000</span>
+          </div>
         </div>
       </div>
     </div>
