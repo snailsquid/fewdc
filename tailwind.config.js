@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       colors: {
         "welcome-text": "#378295",
+        "main-text": "#D08748",
         "page-bg": "#F5F5F5",
         "home-text": "#FE7759",
       },

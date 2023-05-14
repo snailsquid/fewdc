@@ -8,13 +8,13 @@
       "img": "/img/shops/Bandung/surabi/surabi_1.png"
     },
     {
-      "title": "Batagor Umi",
+      "title": "Surabi Umi",
       "road": "Jalan Moh. Oha",
       "stars": 3,
       "img": "/img/shops/Bandung/surabi/surabi_2.png"
     },
     {
-      "title": "Batagor Berkah",
+      "title": "Surabi Berkah",
       "road": "Jalan Moh. Aha",
       "stars": 4,
       "img": "/img/shops/Bandung/surabi/surabi_3.png"
@@ -86,19 +86,19 @@
         "title": "Sate Klatak",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jogja/sate/sate_1.png"
+        "img": "/img/shops/Jogja/SateKlatak/SateKlatak_1.png"
       },
       {
         "title": "Sate Klatak Klutuk",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jogja/sate/sate_2.png"
+        "img": "/img/shops/Jogja/SateKlatak/SateKlatak_2.png"
       },
       {
         "title": "Sate Klatak Klotak",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jogja/sate/sate_3.png"
+        "img": "/img/shops/Jogja/SateKlatak/SateKlatak_3.png"
       }
     ],
     "Gudeg":[
@@ -128,19 +128,19 @@
         "title": "Soto Betawi",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jakarta/soto/soto_1.png"
+        "img": "/img/shops/Jakarta/SotoBetawi/SotoBetawi_1.png"
       },
       {
         "title": "Soto Betawi B",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jakarta/soto/soto_2.png"
+        "img": "/img/shops/Jakarta/SotoBetawi/SotoBetawi_2.png"
       },
       {
         "title": "Soto Betawi C",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jakarta/soto/soto_3.png"
+        "img": "/img/shops/Jakarta/SotoBetawi/SotoBetawi_3.png"
       }
     ],
     "Ketoprak":[
@@ -168,19 +168,19 @@
         "title": "Kerak Telor",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jakarta/keraktelor/kerak_1.png"
+        "img": "/img/shops/Jakarta/KerakTelor/KerakTelor_1.png"
       },
       {
         "title": "Kerak Telorhhh",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jakarta/keraktelor/kerak_2.png"
+        "img": "/img/shops/Jakarta/KerakTelor/KerakTelor_2.png"
       },
       {
         "title": "Kerak Telorhhhhkkk",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jakarta/keraktelor/kerak_3.png"
+        "img": "/img/shops/Jakarta/KerakTelor/KerakTelor_3.png"
       }
     ]
   }

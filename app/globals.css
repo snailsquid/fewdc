@@ -39,3 +39,7 @@ input[type=password]::-ms-clear
     @apply border-2 px-5 py-2 bg-[#D08748] text-white rounded-full hover:-translate-y-2 transition-all cursor-pointer
   }
 }
+
+.neumorph {
+  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.9), 10px 10px 30px rgba(201, 201, 201, 0.9)
+}

@@ -6,24 +6,42 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import Link from "next/link";
 import { motion, AnimatePresence, useAnimate } from "framer-motion";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
 
-const Shop = ({ img, title, stars, road, mtc }) => {
+const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
   let starsList = [];
   let countStars = stars;
   for (let index = 0; index < 4; index++) {
     if (countStars > 0) {
-      starsList.push(<img className="w-6" src="/img/star.svg"></img>);
+      starsList.push(
+        <img key={index} className="w-6" src="/img/star.svg"></img>
+      );
       countStars -= 1;
     } else {
-      starsList.push(<img className="w-6" src="/img/unstar.svg"></img>);
+      starsList.push(
+        <img key={index} className="w-6" src="/img/unstar.svg"></img>
+      );
     }
   }
+  const [route, setRoute] = useState();
+  const router = useRouter();
 
+  useEffect(() => {
+    if (route) {
+      router.push(route);
+    }
+  }, [route]);
   return (
-    <div className="w-96 lg:w-[32rem] bg-[#F5F5F5] rounded-2xl border-white border-2 drop-shadow-lg">
+    <div
+      onClick={() => {
+        setRoute(
+          `/shops/${food}?title=${title}&stars=${stars}&road=${road}&index=${index}&city=${city}`
+        );
+      }}
+      className="w-96 lg:w-[32rem] bg-[#F5F5F5] rounded-2xl border-white border-2 neumorph"
+    >
       <img src={img} className="w-full h-32 rounded-2xl" alt="" />
       <div className="px-9 flex flex-row justify-between py-4">
         <div className="">
@@ -75,7 +93,7 @@ const Slide = ({
       whileHover={{
         scale: [null, 1.1, 1.05],
       }}
-      className="xl:h-80 h-64 w-48 flex items-center xl:w-64 cursor-pointer justify-center flex-col z-10 relative text-center drop-shadow-xl hover:translatex-2 rounded-3xl"
+      className="xl:h-80 h-64 w-48 flex items-center xl:w-64 cursor-pointer justify-center flex-col z-10 relative text-center neumorph hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
         set(textColor);
@@ -130,10 +148,12 @@ export default function Page() {
 
   useEffect(() => {
     if (open) {
+      console.log(open);
+
       if (city == "Bandung") {
         setbgc("#FECB89");
         setItems(["Surabi", "Batagor", "Siomay"]);
-        setSelected("Batagor");
+        setSelected("Surabi");
       }
       if (city == "Jogja") {
         setbgc("#D19F89");
@@ -162,6 +182,7 @@ export default function Page() {
         .classList.add("menu-button-selected");
       const swiper = document.querySelector("#food-slider").swiper;
       swiper.slideTo(items.indexOf(selected));
+      console.log(items.indexOf(selected));
 
       if (selected == "Batagor") {
         setShops(cities.bandung.Batagor);
@@ -198,7 +219,7 @@ export default function Page() {
   });
   return (
     <main className={`bg-page-bg h-screen w-screen ${montserrat.className}`}>
-      <nav className="w-full fixed flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50">
+      <nav className="w-full absolute flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50">
         <div className="invisible absolute lg:relative lg:visible">logo</div>
         <div
           className="flex gap-12 text-md lg:text-2xl font-bold"
@@ -337,6 +358,9 @@ export default function Page() {
             </div>
             <div className="py-10 flex flex-col gap-5">
               <Shop
+                index={items.indexOf(selected)}
+                city={city}
+                food={selected}
                 mtc={mtc}
                 title={shops[0].title}
                 stars={shops[0].stars}
@@ -344,6 +368,9 @@ export default function Page() {
                 img={shops[0].img}
               />
               <Shop
+                index={items.indexOf(selected)}
+                food={selected}
+                city={city}
                 mtc={mtc}
                 title={shops[1].title}
                 stars={shops[1].stars}
@@ -351,7 +378,10 @@ export default function Page() {
                 img={shops[1].img}
               />
               <Shop
+                index={items.indexOf(selected)}
+                food={selected}
                 mtc={mtc}
+                city={city}
                 title={shops[2].title}
                 stars={shops[2].stars}
                 road={shops[2].road}
@@ -385,7 +415,7 @@ export default function Page() {
               set={setmtc}
               bgColor={"#FECB89"}
               textColor={"#D08748"}
-              img="/img/batagor.png"
+              img="/img/Batagor.png"
               title="Bandung"
               desc="desc"
             ></Slide>
@@ -396,7 +426,7 @@ export default function Page() {
               setSelected={setSelected}
               bgColor={"#D3A48F"}
               textColor={"#755040"}
-              img="/img/sateKlatak.png"
+              img="/img/SateKlatak.png"
               title="Jogja"
               desc="monggo"
             ></Slide>

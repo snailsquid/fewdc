@@ -1,6 +1,6 @@
 "use client";
 import localFont from "next/font/local";
-import { Poppins, The_Nautigal } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { useRouter } from "next/navigation";
@@ -66,7 +66,9 @@ export default function Page() {
   const [route, setRoute] = useState();
   const router = useRouter();
   useEffect(() => {
-    router.push(route);
+    if (route) {
+      router.push(route);
+    }
   }, [route]);
   return (
     <main className={`bg-page-bg h-screen w-screen ${poppins.className}`}>
