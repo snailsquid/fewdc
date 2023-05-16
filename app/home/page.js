@@ -98,7 +98,7 @@ const Slide = ({
       whileHover={{
         scale: [null, 1.1, 1.05],
       }}
-      className="xl:h-64 w-full p-2 sm:p-0 h-42 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center neumorph hover:translatex-2 rounded-3xl"
+      className="xl:h-64 w-full max-w-[12rem] p-2 sm:p-0 h-64 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
         setCity(title);
@@ -106,6 +106,7 @@ const Slide = ({
         setOpen(true);
       }}
     >
+      <div className="absolute w-full h-full top-0 left-0  -z-10 "></div>
       <img
         className="justify-center items-center w-full px-5 pb-0 sm:pb-5 relative z-10"
         src={img}
@@ -222,6 +223,7 @@ export default function Page() {
       setScreen(window.innerWidth);
       console.log(`width updated to ${window.innerWidth}`);
     };
+    handleResize();
     window.addEventListener("resize", handleResize);
   });
   return (
@@ -371,8 +373,8 @@ export default function Page() {
           </motion.div>
         </div>
       </AnimatePresence>
-      <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-centeritems-center gap-0 lg:gap-28">
-        <div className="items-center lg:h-full lg:items-start md:items-center justify-center flex flex-col py-32 relative z-10">
+      <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
+        <div className="items-center lg:h-full lg:items-start  justify-center flex flex-col pt-32 relative z-10">
           <div>
             <div
               className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
@@ -409,42 +411,53 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="h-full flex justify-center items-center">
-          <div className="flex flex-row md:flex-row gap-2 md:gap-5 h-fit">
-            <Slide
-              setOpen={setOpen}
-              setCity={setCity}
-              setSelected={setSelected}
-              set={setmtc}
-              bgColor={"#FECB89"}
-              textColor={"#D08748"}
-              img="/img/Batagor.png"
-              title="Bandung"
-              desc="Makanan khas Bandung"
-            ></Slide>
-            <Slide
-              set={setmtc}
-              setOpen={setOpen}
-              setCity={setCity}
-              setSelected={setSelected}
-              bgColor={"#D3A48F"}
-              textColor={"#755040"}
-              img="/img/SateKlatak.png"
-              title="Jogja"
-              desc="Makanan khas Jogja"
-            ></Slide>
-            <Slide
-              bgColor={"#8FC8C2"}
-              set={setmtc}
-              setOpen={setOpen}
-              setCity={setCity}
-              setSelected={setSelected}
-              textColor={"#314D4A"}
-              img="/img/SotoBetawi.png"
-              title="Jakarta"
-              desc="Makanan khas Jakarta"
-            ></Slide>
-          </div>
+        <div className="h-full flex w-fit  max-w-[48rem] justify-center items-center">
+          <Swiper
+            slidesPerView={screen > 640 ? 3 : 2}
+            spaceBetween={screen > 640 ? 0 : 10}
+            className="w-[25rem] sm:w-[37rem]"
+          >
+            <SwiperSlide className="py-10 w-fit">
+              <Slide
+                setOpen={setOpen}
+                setCity={setCity}
+                setSelected={setSelected}
+                set={setmtc}
+                bgColor={"#FECB89"}
+                textColor={"#D08748"}
+                img="/img/Batagor.png"
+                title="Bandung"
+                desc="Makanan khas Bandung"
+              ></Slide>
+            </SwiperSlide>
+
+            <SwiperSlide className="py-10">
+              <Slide
+                set={setmtc}
+                setOpen={setOpen}
+                setCity={setCity}
+                setSelected={setSelected}
+                bgColor={"#D3A48F"}
+                textColor={"#755040"}
+                img="/img/SateKlatak.png"
+                title="Jogja"
+                desc="Makanan khas Jogja"
+              ></Slide>
+            </SwiperSlide>
+            <SwiperSlide className="py-10">
+              <Slide
+                bgColor={"#8FC8C2"}
+                set={setmtc}
+                setOpen={setOpen}
+                setCity={setCity}
+                setSelected={setSelected}
+                textColor={"#314D4A"}
+                img="/img/SotoBetawi.png"
+                title="Jakarta"
+                desc="Makanan khas Jakarta"
+              ></Slide>
+            </SwiperSlide>
+          </Swiper>
         </div>
         <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
         <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>

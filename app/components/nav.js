@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -13,22 +13,24 @@ const montserrat = Montserrat({
 export default function Nav({ mtc, selected }) {
   const [scroll, setScroll] = useState(false);
 
-  const changeColor = () => {
-    if (window.scrollY >= 45) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 45) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
 
-  window.addEventListener("scroll", changeColor);
+    window.addEventListener("scroll", changeColor);
+  });
 
   let home = 0,
     about = 0,
     article = 0;
   return (
     <nav
-      className={`w-full fixed flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50 transition-all ${montserrat.className}`}
+      className={`w-full fixed flex flex-col items-center gap-1 sm:gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50 transition-all ${montserrat.className}`}
       style={{ backgroundColor: scroll ? "#f5f5f5" : "transparent" }}
     >
       <div className="invisible absolute lg:relative lg:visible">logo</div>
@@ -49,7 +51,7 @@ export default function Nav({ mtc, selected }) {
           Beranda
         </Link>
         <Link
-          className={`before:absolute before:w-0 before:bottom-9 hover:before:w-36 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text`}
+          className={`before:absolute before:w-0 before:bottom-9 hover:before:w-36 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text whitespace-nowrap`}
           style={{ color: selected == "about" ? "#245562" : mtc }}
           href="/about"
         >
