@@ -9,6 +9,7 @@ import { motion, AnimatePresence, useAnimate } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
+import Nav from "../components/nav";
 
 const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
   let starsList = [];
@@ -42,7 +43,11 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
       }}
       className="w-72 lg:w-[32rem] cursor-pointer hover:-translate-y-5 transition-all bg-[#F5F5F5] rounded-2xl outline-1 outline outline-white neumorph"
     >
-      <img src={img} className="w-full h-32 rounded-2xl" alt="" />
+      <div
+        style={{ backgroundImage: `url(${img})` }}
+        className="w-full h-32 bg-cover bg-center rounded-2xl"
+        alt=""
+      />
       <div className="px-4 lg:px-9 flex flex-row justify-between py-4">
         <div className="">
           <div
@@ -70,7 +75,7 @@ const MenuButton = ({ name, set, mtc, setted }) => {
       style={{
         color: setted == name ? "#ffffff" : mtc,
         borderColor: mtc,
-        backgroundColor: setted == name ? mtc : "#ffffff",
+        backgroundColor: setted == name ? mtc : "#f5f5f5",
       }}
     >
       {name.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1")}
@@ -93,25 +98,25 @@ const Slide = ({
       whileHover={{
         scale: [null, 1.1, 1.05],
       }}
-      className="xl:h-80 h-64 w-48 flex items-center xl:w-64 cursor-pointer justify-center flex-col z-10 relative text-center neumorph hover:translatex-2 rounded-3xl"
+      className="xl:h-64 w-full p-2 sm:p-0 h-42 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center neumorph hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
-        set(textColor);
         setCity(title);
+        set(textColor);
         setOpen(true);
       }}
     >
       <img
-        className="justify-center items-center w-full px-5 pb-5 relative z-10"
+        className="justify-center items-center w-full px-5 pb-0 sm:pb-5 relative z-10"
         src={img}
       />
       <div
-        className={`${baloo.className} text-4xl relative z-10`}
+        className={`${baloo.className} text-2xl md:text-3xl relative z-10`}
         style={{ color: textColor }}
       >
         {title}
       </div>
-      <div style={{ color: textColor }} className="relative z-10">
+      <div style={{ color: textColor }} className="text-sm relative z-10">
         {desc}
       </div>
     </motion.div>
@@ -138,6 +143,8 @@ const baloo = localFont({
 
 export default function Page() {
   const [open, setOpen] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const [dropdown, setDropdown] = useState("Pilih lokasimu");
   const [mtc, setmtc] = useState("#3d8294");
   const [bgc, setbgc] = useState("#fccb8e");
   const [selected, setSelected] = useState("Batagor");
@@ -219,35 +226,8 @@ export default function Page() {
   });
   return (
     <main className={`bg-page-bg h-screen w-screen ${montserrat.className}`}>
-      <nav className="w-full absolute flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50">
-        <div className="invisible absolute lg:relative lg:visible">logo</div>
-        <div
-          className="flex gap-12 text-md lg:text-2xl font-bold"
-          style={{ color: mtc }}
-        >
-          <Link
-            className="before:absolute before:w-12 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
-            onClick={() => {
-              window.location.reload(true);
-            }}
-          >
-            Home
-          </Link>
-          <Link
-            className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/about"
-          >
-            About
-          </Link>
-          <Link
-            className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/article"
-          >
-            Article
-          </Link>
-        </div>
-      </nav>
+      <Nav mtc={mtc} selected={"home"}></Nav>
+
       <AnimatePresence initial={false}>
         <div
           className="absolute h-full w-full z-30"
@@ -282,7 +262,7 @@ export default function Page() {
             </motion.h1>
             <motion.img
               src={`/img/stars${city}.svg`}
-              className="absolute"
+              className="absolute w-full px-16 lg:px-64 md:px-32"
               alt=""
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -391,23 +371,46 @@ export default function Page() {
           </motion.div>
         </div>
       </AnimatePresence>
-      <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-between xl:justify-centeritems-center gap-0 lg:gap-28">
-        <div className="items-center lg:h-full md:items-start justify-center flex flex-col py-32 relative z-10">
+      <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-centeritems-center gap-0 lg:gap-28">
+        <div className="items-center lg:h-full lg:items-start md:items-center justify-center flex flex-col py-32 relative z-10">
           <div>
             <div
-              className={`${baloo.className} text-4xl md:text-8xl text-home-text`}
+              className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
             >
-              <div>Lapar??</div>
-              <div>Cepat Makan!</div>
+              <div>Kangen Kampung</div>
+              <div>Halaman?</div>
             </div>
-            <div className="font-semibold text-2xl flex flex-col mt-5 md:mt-8">
+            <div className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8">
               <div>Cari makanan khas</div>
               <div>sekitarmu</div>
+            </div>
+            <div>
+              <div
+                className="px-8 w-64  text-welcome-text rounded-xl py-2 outline-1 outline outline-welcome-text justify-between items-center mt-5 flex"
+                onClick={() => {
+                  setDrop(!drop);
+                }}
+              >
+                {dropdown}
+                <img src="/img/dropdown.svg" className="h-3 " alt="" />
+              </div>
+              <div
+                style={{ scale: drop ? "1" : "0" }}
+                className="bg-welcome-text rounded-xl py-2 px-8 w-64 text-white mt-2 transition-all"
+                onClick={() => {
+                  setDropdown(
+                    dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
+                  );
+                  setDrop(false);
+                }}
+              >
+                Bandung
+              </div>
             </div>
           </div>
         </div>
         <div className="h-full flex justify-center items-center">
-          <div className="flex flex-col md:flex-row gap-5 h-fit">
+          <div className="flex flex-row md:flex-row gap-2 md:gap-5 h-fit">
             <Slide
               setOpen={setOpen}
               setCity={setCity}
@@ -417,7 +420,7 @@ export default function Page() {
               textColor={"#D08748"}
               img="/img/Batagor.png"
               title="Bandung"
-              desc="desc"
+              desc="Makanan khas Bandung"
             ></Slide>
             <Slide
               set={setmtc}
@@ -428,7 +431,7 @@ export default function Page() {
               textColor={"#755040"}
               img="/img/SateKlatak.png"
               title="Jogja"
-              desc="monggo"
+              desc="Makanan khas Jogja"
             ></Slide>
             <Slide
               bgColor={"#8FC8C2"}
@@ -439,7 +442,7 @@ export default function Page() {
               textColor={"#314D4A"}
               img="/img/SotoBetawi.png"
               title="Jakarta"
-              desc="sekian"
+              desc="Makanan khas Jakarta"
             ></Slide>
           </div>
         </div>

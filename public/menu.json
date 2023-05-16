@@ -1,0 +1,96 @@
+{
+  "Batagor":[
+    {"category": "Batagor Kuah",
+    "items":
+    [
+      {"title":"Batagor Kuah Isi 5", "desc":"Isi 5 + kerupuk", "img":"/img/Batagor.png"},
+      {"title":"Batagor Kuah Isi 10", "desc":"Isi 10 + kerupuk", "img":"/img/Batagor.png"}
+      ]},
+    {"category":"Batagor Bumbu Kacang","items":[
+      {"title":"Batagor Kacang Isi 5", "desc":"Isi 5 + kerupuk", "img":"/img/BatagorKacang.png"},
+      {"title":"Batagor Kacang Isi 10", "desc":"Isi 10 + kerupuk", "img":"/img/BatagorKacang.png"}
+      ]}
+  ],
+  "SateKlatak":[
+    {"category":"Sate Klatak","items":[
+      {"title":"Sate Klatak 5 Tusuk", "desc":"Isi 5 + lontong", "img":"/img/SateKlatak.png"},
+      {"title":"Sate Klatak 10 Tusuk", "desc":"Isi 10 + lontong", "img":"/img/SateKlatak.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Lontong", "desc":"per satu pcs", "img":"/img/Lontong.png"},
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"}
+      ]}
+  ],
+  "SotoBetawi":[
+    {"category":"Soto Betawi","items":[
+      {"title":"Soto Betawi Daging", "desc":"Isi daging semua", "img":"/img/SotoBetawi.png"},
+      {"title":"Soto Betawi Jeroan", "desc":"isi usus, babat, lidah, paru", "img":"/img/SotoBetawi.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Nasi Putih", "desc":"per porsi", "img":"/img/NasiPutih.png"},
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"}
+      ]}
+  ],
+  "Surabi":[
+    {"category":"Surabi","items":[
+      {"title":"Surabi Oncom", "desc":"ada oncomnya gaiz", "img":"/img/Surabi.png"},
+      {"title":"Surabi Coklat Keju", "desc":"yang pasti ada coklatnya", "img":"/img/Surabi.png"},
+      {"title":"Surabi Kinca", "desc":"Surabi original gaizezee", "img":"/img/Surabi.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"}
+      ]}
+  ],
+  "Bakpia":[
+    {"category":"Bakpia","items":[
+      {"title":"Bakpia Kacang Ijo", "desc":"Isi kacang ijoo", "img":"/img/Bakpia.png"},
+      {"title":"Bakpia Coklat", "desc":"Isi coklat nyamm", "img":"/img/Bakpia.png"},
+      {"title":"Bakpia Keju", "desc":"Isi queju", "img":"/img/Bakpia.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"}
+
+      ]}
+  ],
+  "KerakTelor":[
+    {"category":"Kerak Telor","items":[
+      {"title":"Kerak Telor Ayam", "desc":"kukuruyuk", "img":"/img/KerakTelor.png"},
+      {"title":"Kerak Telor Ayam Bebek", "desc":"kwek", "img":"/img/KerakTelor.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"},
+      {"title":"Jus Mangga", "desc":"300 ml", "img":"/img/JusMangga.png"}
+      ]}
+  ],
+  "Siomay":[
+    {"category":"Siomay","items":[
+      {"title":"Siomay Ayam", "desc":"ayamm", "img":"/img/Siomay.png"},
+      {"title":"Siomay Ikan", "desc":"ikan tenggelam", "img":"/img/Siomay.png"}
+      ]},
+    {"category":"Additional","items":[
+      {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"},
+      {"title":"Jus Mangga", "desc":"300 ml", "img":"/img/JusMangga.png"}
+      ]}
+  ],
+  "Gudeg":[
+    {"category":"Gudeg","items":[
+      {"title":"Gudeg", "desc":"Ya gudegnya", "img":"/img/Gudeg.png"},
+      {"title":"Krecek", "desc":"peedas", "img":"/img/Gudeg.png"}
+      ]},
+      {"category":"Additional","items":[
+        {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"},
+        {"title":"Jus Mangga", "desc":"300 ml", "img":"/img/JusMangga.png"}
+        ]}
+  ],
+  "Ketoprak":[
+    {"category":"Ketoprak","items":[
+      {"title":"Ketoprak Telur Rebus", "desc":"bayi ayam belum lahir direbus", "img":"/img/Ketoprak.png"},
+      {"title":"Ketoprak Telur Dadar", "desc":"bayi ayam lahir di goreng", "img":"/img/Ketoprak.png"}
+      ]},
+      {"category":"Additional","items":[
+        {"title":"Air Mineral", "desc":"300 ml", "img":"/img/AirMineral.png"},
+        {"title":"Jus Mangga", "desc":"300 ml", "img":"/img/JusMangga.png"}
+        ]}
+  ]
+  
+}

@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 import { NumericFormat } from "react-number-format";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import menu from "../../../public/menu.json";
+import Nav from "../../components/nav";
 
 const Card = ({ title, price, img, desc }) => {
   return (
@@ -79,30 +81,9 @@ export default function Page({ params, searchParams }) {
   }
   return (
     <div className={`w-screen h-fit bg-[#F5F5F5] ${montserrat.className}`}>
-      <nav className="w-full absolute flex flex-col items-center gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50">
-        <div className="invisible absolute lg:relative lg:visible">logo</div>
-        <div className="flex gap-12 text-md lg:text-2xl font-bold text-welcome-text">
-          <Link
-            className="before:absolute before:w-12 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/home"
-          >
-            Home
-          </Link>
-          <Link
-            className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/about"
-          >
-            About
-          </Link>
-          <Link
-            className="before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text"
-            href="/article"
-          >
-            Article
-          </Link>
-        </div>
-      </nav>
-      <div className="fixed left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
+      <Nav mtc={"#3d8294"}></Nav>
+
+      <div className="fixed left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2682a] blur-3xl"></div>
       <div className="fixed top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
 
       <div
@@ -163,16 +144,25 @@ export default function Page({ params, searchParams }) {
           </div>
         </div>
         <div className="justify-center items-center flex flex-col gap-5">
-          <h2 className="w-full text-xl max-w-sm md:max-w-none text-left font-bold text-welcome-text">
-            Batagor Kuah
-          </h2>
-          <Card
-            title="Batagor Kuah Isi 5"
-            desc="Isi 5 + Kerupuk"
-            price={10000}
-            img={"/img/Batagor.png"}
-          />
-          <Card
+          {menu[food].map((category) => (
+            <div className="flex flex-col gap-3 mt-3">
+              <h2 className="w-full text-xl max-w-sm md:max-w-none text-left font-bold text-welcome-text ">
+                {category.category}
+              </h2>
+              {category.items.map((item) => {
+                console.log(item.title);
+                return (
+                  <Card
+                    title={item.title}
+                    desc={item.desc}
+                    price={10000}
+                    img={item.img}
+                  />
+                );
+              })}
+            </div>
+          ))}
+          {/* <Card
             title="Batagor Kuah Isi 10"
             desc="Isi 10 + Kerupuk"
             price={19000}
@@ -192,7 +182,7 @@ export default function Page({ params, searchParams }) {
             desc="Isi 10 + Kerupuk"
             price={19000}
             img={"/img/BatagorKacang.png"}
-          />
+          /> */}
         </div>
         <div className="fixed bottom-0  w-full left-0 flex justify-center">
           <Link
