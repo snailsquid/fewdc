@@ -145,7 +145,7 @@ export default function Page({ params, searchParams }) {
         </div>
         <div className="justify-center items-center flex flex-col gap-5">
           {menu[food].map((category) => (
-            <div className="flex flex-col gap-3 mt-3">
+            <div className="flex flex-col gap-3 mt-3" key={category.category}>
               <h2 className="w-full text-xl max-w-sm md:max-w-none text-left font-bold text-welcome-text ">
                 {category.category}
               </h2>
@@ -153,6 +153,7 @@ export default function Page({ params, searchParams }) {
                 console.log(item.title);
                 return (
                   <Card
+                    key={item.title}
                     title={item.title}
                     desc={item.desc}
                     price={10000}
@@ -162,27 +163,6 @@ export default function Page({ params, searchParams }) {
               })}
             </div>
           ))}
-          {/* <Card
-            title="Batagor Kuah Isi 10"
-            desc="Isi 10 + Kerupuk"
-            price={19000}
-            img={"/img/Batagor.png"}
-          />
-          <h2 className="w-full text-xl mt-3 max-w-sm md:max-w-none text-left font-bold text-welcome-text">
-            Batagor Kacang
-          </h2>
-          <Card
-            title="Batagor Kacang Isi 5"
-            desc="Isi 5 + Kerupuk"
-            price={10000}
-            img={"/img/BatagorKacang.png"}
-          />
-          <Card
-            title="Batagor Kacang Isi 10"
-            desc="Isi 10 + Kerupuk"
-            price={19000}
-            img={"/img/BatagorKacang.png"}
-          /> */}
         </div>
         <div className="fixed bottom-0  w-full left-0 flex justify-center">
           <Link
