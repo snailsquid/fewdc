@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Poppins } from "next/font/google";
 import "swiper/swiper.min.css";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const baloo = localFont({
   src: "../fonts/baloo.ttf",
@@ -18,10 +19,25 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-function Card({ img, title, desc, link }) {
+function Card({ img, title, desc, link, delay }) {
   return (
-    <div
-      className="w-full sm:max-w-[24rem] sm:w-full h-fit sm:h-52 bg-[#f5f5f5] neumorph outline-1 outline outline-white rounded-xl cursor-pointer hover:-translate-y-2 transition-all"
+    <motion.div
+      whileHover={{
+        translateY: -5,
+        transition: { type: "spring", stiffness: 400, damping: 17 },
+      }}
+      initial={{ translateY: -100, opacity: 0 }}
+      animate={{
+        translateY: 0,
+        opacity: 100,
+        transition: {
+          type: "spring",
+          stiffness: 400,
+          damping: 20,
+          delay: delay,
+        },
+      }}
+      className="w-full sm:max-w-[24rem] sm:w-full h-fit sm:h-52 bg-[#f5f5f5] neumorph outline-1 outline outline-white rounded-xl cursor-pointer "
       onClick={() => {
         window.open(link, "_blank");
       }}
@@ -36,25 +52,36 @@ function Card({ img, title, desc, link }) {
           {desc}
         </h4>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 const Container = ({ children }) => {
   return (
-    <div className="flex flex-col w-full sm:w-auto items-center justify-center md:justify-start  max-w-[49rem]">
+    <div className="flex flex-col w-full items-start justify-start md:justify-start  max-w-[49rem]">
       {children}
     </div>
   );
 };
 
-const Title = ({ children }) => {
+const Title = ({ children, delay }) => {
   return (
-    <h3
+    <motion.h3
+      initial={{ translateY: -100, opacity: 0 }}
+      animate={{
+        translateY: 0,
+        opacity: 100,
+        transition: {
+          type: "spring",
+          stiffness: 400,
+          damping: 20,
+          delay: delay,
+        },
+      }}
       className={`${baloo.className} w-full relative z-30 text-[#FE7759] text-xl mb-3 mt-5`}
     >
       {children}
-    </h3>
+    </motion.h3>
   );
 };
 
@@ -73,11 +100,7 @@ export default function Page() {
       <Nav mtc={"#378295"} selected={"article"}></Nav>
       <div className={"py-28 px-10 items-center flex flex-col"}>
         <div className="w-full sm:w-auto">
-          <h3
-            className={`${baloo.className} relative z-30 text-[#FE7759] text-xl mb-3 mt-5`}
-          >
-            Makanan Khas Indonesia
-          </h3>
+          <Title delay={0}>Makanan Khas Indonesia</Title>
           <div className=" flex md:flex-row flex-col gap-5">
             <Card
               img={"/img/article/1.png"}
@@ -86,6 +109,7 @@ export default function Page() {
                 "Dari kuliner berat hingga makanan ringan dan bahkan minuman khas Jogja..."
               }
               link={"https://dolanyok.com/makanan-khas-jogja/"}
+              delay={0}
             ></Card>
             <Card
               img={"/img/article/2.png"}
@@ -94,11 +118,12 @@ export default function Page() {
                 "Makanan khas tersebut dikenal sebagai makanan khas Betawi yaitu makanan khas ala masyarakat asli Jakarta."
               }
               link={"https://dolanyok.com/makanan-khas-jakarta/"}
+              delay={0.1}
             ></Card>
           </div>
         </div>
         <Container>
-          <Title>Sejarah Nama</Title>
+          <Title delay={0.1}>Sejarah Nama</Title>
           <Card
             img={"/img/article/3.png"}
             title={"Sejarah Nama Makanan Khas Bandung"}
@@ -108,10 +133,11 @@ export default function Page() {
             link={
               "https://kabarbandung.id/2019/05/16/yuk-intip-sejarah-nama-makanan-khas-bandung/"
             }
+            delay={0.2}
           />
         </Container>
         <Container>
-          <Title>Tentang Batagor</Title>
+          <Title delay={0.2}>Tentang Batagor</Title>
           <Card
             img={"/img/article/4.png"}
             title={"Kisah Kang Isan Pada 1973"}
@@ -119,10 +145,11 @@ export default function Page() {
               "Batagor Isan inilah yang disebut-sebut 'penemu' makanan yang kemudian disebut batagor tersebut."
             }
             link="https://www.agendaindonesia.com/batagor-bandung-kisah-kang-isan-pada-1973/#:~:text=Batagor%20adalah%20kuliner%20yang%20tercipta,Bandung%20dengan%20niat%20mencari%20pekerjaan"
+            delay={0.3}
           />
         </Container>
         <Container>
-          <Title>Tentang Sate Klatak</Title>
+          <Title delay={0.3}>Tentang Sate Klatak</Title>
           <Card
             img={"/img/article/5.png"}
             title={"Sate Jeruji Dengan Rasa Yang Nikmat"}
@@ -132,6 +159,7 @@ export default function Page() {
             link={
               "https://sibakuljogja.jogjaprov.go.id/pasarkotagedeyia/blog/2022/08/11/sate-klatak/#:~:text=Konon%20menurut%20cerita%20yang%20beredar,dikenal%20sebagai%20pusat%20sate%20klatak"
             }
+            delay={0.4}
           />
         </Container>
       </div>

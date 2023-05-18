@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import { Montserrat, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import Nav from "../components/nav";
+import { motion } from "framer-motion";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,13 +27,19 @@ function Card({ title, desc, img }) {
       </span>
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-10">
         <span className={`flex flex-row ${baloo.className} gap-2`}>
-          <div className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer ">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer "
+          >
             -
-          </div>
+          </motion.div>
           <div>4</div>
-          <div className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer"
+          >
             +
-          </div>
+          </motion.div>
         </span>
         <h3 className={`text-[#FE7759]  ${baloo.className}`}>Rp40.000</h3>
       </div>
@@ -70,7 +78,7 @@ export default function Page() {
           <div className="w-full flex flex-col relative">
             <h2>No Whatsapp</h2>
             <input
-              type="text"
+              type="number"
               className="focus:outline-none text-[#314D4A]"
               name=""
               id=""
@@ -100,7 +108,7 @@ export default function Page() {
             desc={"Isi 5 + Krupuk"}
           />
         </div>
-        <div className="bg-[#F7EEA4] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-2 text-[#314D4A] max-w-[48rem] min-w-[21rem] w-full">
+        <div className="bg-[#fff186] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-2 text-[#314D4A] max-w-[48rem] min-w-[21rem] w-full">
           <h2 className="text-welcome-text">Payment Summary</h2>
           <span className="flex justify-between">
             <h3>Price</h3>

@@ -5,7 +5,7 @@ import { Montserrat, Poppins } from "next/font/google";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import Link from "next/link";
-import { motion, AnimatePresence, useAnimate } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
@@ -35,13 +35,24 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
     }
   }, [route]);
   return (
-    <div
+    <motion.div
+      initial={{ y: -50, opacity: 0 }}
+      whileInView={{
+        y: 0,
+        opacity: 100,
+        transition: {
+          type: "spring",
+          delay: 0.15,
+        },
+      }}
       onClick={() => {
         setRoute(
           `/shops/${food}?title=${title}&stars=${stars}&road=${road}&index=${index}&city=${city}`
         );
       }}
-      className="w-72 lg:w-[32rem] cursor-pointer hover:-translate-y-5 transition-all bg-[#F5F5F5] rounded-2xl outline-1 outline outline-white neumorph"
+      whileHover={{ translateY: -5 }}
+      whileTap={{ scale: 0.9 }}
+      className="w-72 lg:w-[32rem] cursor-pointer bg-[#F5F5F5] rounded-2xl outline-1 outline outline-white neumorph"
     >
       <div
         style={{ backgroundImage: `url(${img})` }}
@@ -60,13 +71,15 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
         </div>
         <div className="flex flex-row">{starsList}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const MenuButton = ({ name, set, mtc, setted }) => {
   return (
-    <span
+    <motion.span
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.8 }}
       onClick={() => {
         set(name);
       }}
@@ -79,7 +92,7 @@ const MenuButton = ({ name, set, mtc, setted }) => {
       }}
     >
       {name.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1")}
-    </span>
+    </motion.span>
   );
 };
 
@@ -92,12 +105,30 @@ const Slide = ({
   set,
   setOpen,
   setCity,
+  delay,
 }) => {
   return (
     <motion.div
       whileHover={{
-        scale: [null, 1.1, 1.05],
+        scale: 1.1,
+        transition: {
+          type: "spring",
+          stiffness: 400,
+          damping: 17,
+        },
       }}
+      initial={{ translateY: -100, opacity: 0 }}
+      animate={{
+        translateY: 0,
+        opacity: 100,
+        transition: {
+          type: "spring",
+          stiffness: 300,
+          damping: 20,
+          delay: delay,
+        },
+      }}
+      whileTap={{ scale: 0.9 }}
       className="xl:h-64 w-full max-w-[12rem] p-2 sm:p-0 h-64 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
@@ -153,7 +184,6 @@ export default function Page() {
   const [screen, setScreen] = useState();
   const [items, setItems] = useState(["Surabi", "Batagor", "Siomay"]);
   const [shops, setShops] = useState(cities.bandung.Batagor);
-
   useEffect(() => {
     if (open) {
       console.log(open);
@@ -232,7 +262,7 @@ export default function Page() {
 
       <AnimatePresence initial={false}>
         <div
-          className="absolute h-full w-full z-30"
+          className="absolute h-full w-full z-30 "
           style={{
             visibility: open ? "visible" : "hidden",
             overflow: open ? "visible" : "hidden",
@@ -254,7 +284,7 @@ export default function Page() {
           >
             <motion.h1
               key={open}
-              className="text-center font text-5xl lg:text-9xl relative  "
+              className="text-center font text-5xl lg:text-9xl relative"
               style={{ color: mtc }}
               transition={{ delay: 0.8 }}
               initial={{ y: 200, opacity: 0 }}
@@ -262,9 +292,10 @@ export default function Page() {
             >
               {city}
             </motion.h1>
+
             <motion.img
               src={`/img/stars${city}.svg`}
-              className="absolute w-full px-16 lg:px-64 md:px-32"
+              className="absolute w-full px-16 lg:px-64 md:px-32 "
               alt=""
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -272,7 +303,7 @@ export default function Page() {
             />
             <Swiper
               id={"food-slider"}
-              className="w-48 h-48 lg:w-64 lg:h-64 flex items-center"
+              className="w-48 h-48 lg:w-64 lg:h-64 flex items-center "
               onSlideChange={(swiper) => {
                 setSelected(items[swiper.realIndex]);
               }}
@@ -376,17 +407,44 @@ export default function Page() {
       <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
         <div className="items-center lg:h-full lg:items-start  justify-center flex flex-col pt-32 relative z-10">
           <div>
-            <div
+            <motion.div
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0,
+              }}
+              initial={{ translateY: -100, opacity: 0 }}
+              animate={{ translateY: 0, opacity: 100 }}
               className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
             >
               <div>Kangen Kampung</div>
               <div>Halaman?</div>
-            </div>
-            <div className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8">
+            </motion.div>
+            <motion.div
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0.1,
+              }}
+              initial={{ translateY: -100, opacity: 0 }}
+              animate={{ translateY: 0, opacity: 100 }}
+              className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8"
+            >
               <div>Cari makanan khas</div>
               <div>sekitarmu</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0.2,
+              }}
+              initial={{ translateY: -100, opacity: 0 }}
+              animate={{ translateY: 0, opacity: 100 }}
+            >
               <div
                 className="px-8 w-64  text-welcome-text rounded-xl py-2 outline-1 outline outline-welcome-text justify-between items-center mt-5 flex"
                 onClick={() => {
@@ -398,7 +456,7 @@ export default function Page() {
               </div>
               <div
                 style={{ scale: drop ? "1" : "0" }}
-                className="bg-welcome-text rounded-xl py-2 px-8 w-64 text-white mt-2 transition-all"
+                className="bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
                 onClick={() => {
                   setDropdown(
                     dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
@@ -408,14 +466,14 @@ export default function Page() {
               >
                 Bandung
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="h-full flex w-fit  max-w-[48rem] justify-center items-center">
           <Swiper
             slidesPerView={screen > 640 ? 3 : 2}
-            spaceBetween={screen > 640 ? 0 : 10}
-            className="w-[25rem] sm:w-[37rem]"
+            spaceBetween={20}
+            className="w-[22rem] sm:w-[37rem] sm:!overflow-visible"
           >
             <SwiperSlide className="py-10 w-fit">
               <Slide
@@ -428,6 +486,7 @@ export default function Page() {
                 img="/img/Batagor.png"
                 title="Bandung"
                 desc="Makanan khas Bandung"
+                delay={0}
               ></Slide>
             </SwiperSlide>
 
@@ -442,6 +501,7 @@ export default function Page() {
                 img="/img/SateKlatak.png"
                 title="Jogja"
                 desc="Makanan khas Jogja"
+                delay={0.1}
               ></Slide>
             </SwiperSlide>
             <SwiperSlide className="py-10">
@@ -455,6 +515,7 @@ export default function Page() {
                 img="/img/SotoBetawi.png"
                 title="Jakarta"
                 desc="Makanan khas Jakarta"
+                delay={0.2}
               ></Slide>
             </SwiperSlide>
           </Swiper>
