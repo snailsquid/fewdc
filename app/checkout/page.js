@@ -55,11 +55,31 @@ export default function Page() {
       <Nav mtc={"#3d8294"}></Nav>
 
       <div className="px-10 py-28 flex flex-col gap-5 z-10 relative items-center">
-        <div className="flex justify-between bg-[#B6E1DD] px-4 md:px-10 rounded-xl py-4 font-bold text-[#314d4a] text-sm neumorph outline-1 outline outline-white max-w-[48rem] w-full min-w-[21rem]">
+        <motion.div
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0,
+          }}
+          className="flex justify-between bg-[#B6E1DD] px-4 md:px-10 rounded-xl py-4 font-bold text-[#314d4a] text-sm neumorph outline-1 outline outline-white max-w-[48rem] w-full min-w-[21rem]"
+        >
           <div>Order ID</div>
           <div className="text-[#4d7773]">1234-5678-90123-456</div>
-        </div>
-        <div className="bg-[#F5F5F5] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-3 text-welcome-text max-w-[48rem] min-w-[21rem] w-full">
+        </motion.div>
+        <motion.div
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0.1,
+          }}
+          className="bg-[#F5F5F5] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-3 text-welcome-text max-w-[48rem] min-w-[21rem] w-full"
+        >
           <div className="w-full flex flex-col relative">
             <h2>Lokasi Pengantaran</h2>
             <input
@@ -95,8 +115,18 @@ export default function Page() {
             <input type="radio" name="Tunai" value={"Tunai"} id="" />
             <label className="ml-3">Tunai</label>
           </div>
-        </div>
-        <div className="bg-[#F5F5F5] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-5 text-welcome-text max-w-[48rem] min-w-[21rem] w-full">
+        </motion.div>
+        <motion.div
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0.2,
+          }}
+          className="bg-[#F5F5F5] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-5 text-welcome-text max-w-[48rem] min-w-[21rem] w-full"
+        >
           <Card
             img={"/img/Batagor.png"}
             title={"Batagor Kuah Isi 5"}
@@ -107,8 +137,18 @@ export default function Page() {
             title={"Batagor Kacang Isi 5"}
             desc={"Isi 5 + Krupuk"}
           />
-        </div>
-        <div className="bg-[#fff186] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-2 text-[#314D4A] max-w-[48rem] min-w-[21rem] w-full">
+        </motion.div>
+        <motion.div
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0.3,
+          }}
+          className="bg-[#fff186] neumorph rounded-xl outline-1 outline outline-white px-4 md:px-10 py-4 flex flex-col gap-2 text-[#314D4A] max-w-[48rem] min-w-[21rem] w-full"
+        >
           <h2 className="text-welcome-text">Payment Summary</h2>
           <span className="flex justify-between">
             <h3>Price</h3>
@@ -127,15 +167,25 @@ export default function Page() {
             <h3 className={` ${baloo.className}`}>Total Payment</h3>
             <h3 className=" font-bold">Rp3,000</h3>
           </span>
-        </div>
-        <div className={`justify-center flex`}>
+        </motion.div>
+        <motion.div
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            delay: 0.4,
+          }}
+          className={`justify-center flex`}
+        >
           <Link
             href="/confirmed"
             className={`${baloo.className} text-white bg-welcome-text w-fit px-10 py-2 rounded-2xl outline-1 outline outline-white neumorph hover:-translate-y-1 transition-all`}
           >
             Pesan Sekarang !!
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

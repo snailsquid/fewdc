@@ -485,7 +485,7 @@ export default function Page() {
                 textColor={"#D08748"}
                 img="/img/Batagor.png"
                 title="Bandung"
-                desc="Makanan khas Bandung"
+                desc="Batagor"
                 delay={0}
               ></Slide>
             </SwiperSlide>
@@ -500,7 +500,7 @@ export default function Page() {
                 textColor={"#755040"}
                 img="/img/SateKlatak.png"
                 title="Jogja"
-                desc="Makanan khas Jogja"
+                desc="Sate Klatak"
                 delay={0.1}
               ></Slide>
             </SwiperSlide>
@@ -514,7 +514,7 @@ export default function Page() {
                 textColor={"#314D4A"}
                 img="/img/SotoBetawi.png"
                 title="Jakarta"
-                desc="Makanan khas Jakarta"
+                desc="Soto Betawi"
                 delay={0.2}
               ></Slide>
             </SwiperSlide>
