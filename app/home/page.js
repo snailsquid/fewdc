@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
 import Nav from "../components/nav";
 
-const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
+const Shop = ({ img, title, stars, road, mtc, food, index, city, id }) => {
   let starsList = [];
   let countStars = stars;
   for (let index = 0; index < 4; index++) {
@@ -43,6 +43,7 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
   }, [route]);
   return (
     <motion.div
+      id={id}
       initial={{ y: -50, opacity: 0 }}
       whileInView={{
         y: 0,
@@ -84,7 +85,8 @@ const Shop = ({ img, title, stars, road, mtc, food, index, city }) => {
 
 const MenuButton = ({ name, set, mtc, setted }) => {
   return (
-    <motion.span
+    <motion.a
+      href={"#first"}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.8 }}
       onClick={() => {
@@ -99,7 +101,7 @@ const MenuButton = ({ name, set, mtc, setted }) => {
       }}
     >
       {name.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1")}
-    </motion.span>
+    </motion.a>
   );
 };
 
@@ -393,6 +395,7 @@ export default function Page() {
             </div>
             <div className="mt-16 flex flex-col gap-5">
               <Shop
+                id={"first"}
                 index={items.indexOf(selected)}
                 city={city}
                 food={selected}

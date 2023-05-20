@@ -6,6 +6,7 @@
   html {
     font-family: Poppins, Baloo;
     background-color: #F5F5F5;
+    scroll-behavior: smooth;
   }
 }
 

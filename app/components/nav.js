@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,13 +26,13 @@ export default function Nav({ mtc, selected }) {
     window.addEventListener("scroll", changeColor);
   });
 
-  let home = 0,
-    about = 0,
-    article = 0;
   return (
-    <nav
-      className={`w-full fixed flex flex-col items-center gap-1 sm:gap-3 lg:flex-row lg:justify-between px-10 py-10 lg:py-10 z-50 transition-all ${montserrat.className}`}
-      style={{ backgroundColor: scroll ? "#f5f5f5" : "transparent" }}
+    <motion.nav
+      className={`w-full fixed flex flex-col items-center gap-1 sm:gap-3 lg:flex-row lg:justify-between px-10 z-50 transition-all ${montserrat.className}`}
+      animate={{
+        backgroundColor: scroll ? "#f5f5f5" : "transparent",
+        padding: scroll ? [40, 16] : [40, 40],
+      }}
     >
       <div className="invisible absolute lg:relative lg:visible">logo</div>
       <div
@@ -65,6 +66,6 @@ export default function Nav({ mtc, selected }) {
           Artikel
         </Link>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
