@@ -34,7 +34,10 @@ export default function Nav({ mtc, selected }) {
         padding: scroll ? [40, 16] : [40, 40],
       }}
     >
-      <div className="invisible absolute lg:relative lg:visible">logo</div>
+      <img
+        className="invisible w-12 absolute lg:relative lg:visible"
+        src={"/img/logo.png"}
+      ></img>
       <div
         className="flex gap-12 text-md lg:text-xl font-bold"
         style={{ color: mtc }}
