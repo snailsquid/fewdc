@@ -5,7 +5,13 @@ import { Montserrat, Poppins } from "next/font/google";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useMotionValueEvent,
+} from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
@@ -184,6 +190,14 @@ export default function Page() {
   const [screen, setScreen] = useState();
   const [items, setItems] = useState(["Surabi", "Batagor", "Siomay"]);
   const [shops, setShops] = useState(cities.bandung.Batagor);
+  const [transY, setTransY] = useState(0);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setTransY(latest);
+  });
+
   useEffect(() => {
     if (open) {
       console.log(open);
@@ -295,55 +309,61 @@ export default function Page() {
               {city}
             </motion.h1>
 
-            <motion.img
-              src={`/img/stars${city}.svg`}
+            <motion.div
               className="absolute w-full px-16 lg:px-64 md:px-32 "
-              alt=""
-              initial={{ y: 80, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9 }}
-            />
-            <Swiper
-              id={"food-slider"}
-              className="w-48 h-48 lg:w-64 lg:h-64 flex items-center "
-              onSlideChange={(swiper) => {
-                setSelected(items[swiper.realIndex]);
-              }}
+              style={{ y: transY * 0.5 }}
             >
-              <SwiperSlide>
-                <motion.img
-                  key={open}
-                  initial={{ y: 80, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  src={`/img/${items[0]}.png`}
-                  alt="food1"
-                  className="relative z-30 lg:w-64 lg:h-64 p-0 m-0 w-48 h-48"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <motion.img
-                  key={open}
-                  initial={{ y: 80, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  src={`/img/${items[1]}.png`}
-                  alt="food2"
-                  className="relative z-30 lg:w-64 lg:h-64 w-48 h-48"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <motion.img
-                  key={open}
-                  initial={{ y: 80, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  src={`/img/${items[2]}.png`}
-                  alt="food3"
-                  className="relative z-30 lg:w-64 lg:h-64 w-48 h-48"
-                />
-              </SwiperSlide>
-            </Swiper>
+              <motion.img
+                src={`/img/stars${city}.svg`}
+                alt=""
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.9 }}
+              />
+            </motion.div>
+            <motion.div style={{ y: -transY * 0.2 }}>
+              <Swiper
+                id={"food-slider"}
+                className="w-48 h-48 lg:w-64 lg:h-64 flex items-center "
+                onSlideChange={(swiper) => {
+                  setSelected(items[swiper.realIndex]);
+                }}
+              >
+                <SwiperSlide>
+                  <motion.img
+                    key={open}
+                    initial={{ y: 80, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    src={`/img/${items[0]}.png`}
+                    alt="food1"
+                    className="relative z-30 lg:w-64 lg:h-64 p-0 m-0 w-48 h-48"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <motion.img
+                    key={open}
+                    initial={{ y: 80, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    src={`/img/${items[1]}.png`}
+                    alt="food2"
+                    className="relative z-30 lg:w-64 lg:h-64 w-48 h-48"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <motion.img
+                    key={open}
+                    initial={{ y: 80, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    src={`/img/${items[2]}.png`}
+                    alt="food3"
+                    className="relative z-30 lg:w-64 lg:h-64 w-48 h-48"
+                  />
+                </SwiperSlide>
+              </Swiper>
+            </motion.div>
           </motion.div>
           <motion.div
             className="flex items-center z-60 h-full  mt- w-full flex-col  bg-[#F5F5F5] py-5"
@@ -371,7 +391,7 @@ export default function Page() {
                 set={setSelected}
               />
             </div>
-            <div className="py-10 flex flex-col gap-5">
+            <div className="mt-16 flex flex-col gap-5">
               <Shop
                 index={items.indexOf(selected)}
                 city={city}
