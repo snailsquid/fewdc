@@ -37,7 +37,7 @@ function Card({ img, title, desc, link, delay }) {
           delay: delay,
         },
       }}
-      className="w-full sm:max-w-[24rem] sm:w-full h-fit sm:h-52 bg-[#f5f5f5] neumorph outline-1 outline outline-white rounded-xl cursor-pointer "
+      className="w-full sm:max-w-[24rem] sm:w-full h-fit sm:h-52 z-10 bg-[#f5f5f5] neumorph outline-1 outline outline-white rounded-xl cursor-pointer "
       onClick={() => {
         window.open(link, "_blank");
       }}
@@ -98,6 +98,8 @@ export default function Page() {
   return (
     <div className={`${poppins.className}`}>
       <Nav mtc={"#378295"} selected={"article"}></Nav>
+      <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
       <div className={"py-28 px-10 items-center flex flex-col"}>
         <div className="w-full sm:w-auto">
           <Title delay={0}>Makanan Khas Indonesia</Title>

@@ -257,12 +257,14 @@ export default function Page() {
     window.addEventListener("resize", handleResize);
   });
   return (
-    <main className={`bg-page-bg h-screen w-screen ${montserrat.className}`}>
+    <main
+      className={`bg-page-bg w-full h-screen ${montserrat.className} flex justify-center`}
+    >
       <Nav mtc={mtc} selected={"home"}></Nav>
 
       <AnimatePresence initial={false}>
         <div
-          className="absolute h-full w-full z-30 "
+          className="absolute h-full w-full z-30 wrapper"
           style={{
             visibility: open ? "visible" : "hidden",
             overflow: open ? "visible" : "hidden",
@@ -404,8 +406,8 @@ export default function Page() {
           </motion.div>
         </div>
       </AnimatePresence>
-      <div className="text-welcome-text relative w-full z-10 px-5 lg:px-20 flex lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
-        <div className="items-center lg:h-full lg:items-start  justify-center flex flex-col pt-32 relative z-10">
+      <div className="text-welcome-text relative w-full max-w-[1441px] h-full z-10 px-5 lg:px-20 flex pt-32 lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
+        <div className="items-center flex-[5] lg:h-full lg:items-start  justify-center flex flex-col relative z-10">
           <div>
             <motion.div
               transition={{
@@ -456,7 +458,7 @@ export default function Page() {
               </div>
               <div
                 style={{ scale: drop ? "1" : "0" }}
-                className="bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
+                className="absolute bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
                 onClick={() => {
                   setDropdown(
                     dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
@@ -469,7 +471,7 @@ export default function Page() {
             </motion.div>
           </div>
         </div>
-        <div className="h-full flex w-fit  max-w-[48rem] justify-center items-center">
+        <div className="h-full flex w-fit flex-1  max-w-[48rem] justify-center items-center">
           <Swiper
             slidesPerView={screen > 640 ? 3 : 2}
             spaceBetween={20}
@@ -485,7 +487,7 @@ export default function Page() {
                 textColor={"#D08748"}
                 img="/img/Batagor.png"
                 title="Bandung"
-                desc="Batagor"
+                desc="Makanan khas Bandung"
                 delay={0}
               ></Slide>
             </SwiperSlide>
@@ -500,7 +502,7 @@ export default function Page() {
                 textColor={"#755040"}
                 img="/img/SateKlatak.png"
                 title="Jogja"
-                desc="Sate Klatak"
+                desc="Makanan khas Jogja"
                 delay={0.1}
               ></Slide>
             </SwiperSlide>
@@ -514,15 +516,15 @@ export default function Page() {
                 textColor={"#314D4A"}
                 img="/img/SotoBetawi.png"
                 title="Jakarta"
-                desc="Soto Betawi"
+                desc="Makanan khas Jakarta"
                 delay={0.2}
               ></Slide>
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
-        <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
       </div>
+      <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
     </main>
   );
 }

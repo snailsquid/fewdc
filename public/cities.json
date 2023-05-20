@@ -5,38 +5,38 @@
       "title": "Surabi Abah",
       "road": "Jalan Moh. Toha",
       "stars": 2,
-      "img": "/img/shops/Bandung/surabi/surabi_1.png"
+      "img": "/img/shops/Bandung/Surabi/Surabi_1.png"
     },
     {
       "title": "Surabi Umi",
       "road": "Jalan Moh. Oha",
       "stars": 3,
-      "img": "/img/shops/Bandung/surabi/surabi_2.png"
+      "img": "/img/shops/Bandung/Surabi/Surabi_2.png"
     },
     {
       "title": "Surabi Berkah",
       "road": "Jalan Moh. Aha",
       "stars": 4,
-      "img": "/img/shops/Bandung/surabi/surabi_3.png"
+      "img": "/img/shops/Bandung/Surabi/Surabi_3.png"
     }],
     "Batagor":[
       {
         "title": "Batagor Enaakk",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Bandung/batagor/batagor_1.png"
+        "img": "/img/shops/Bandung/Batagor/Batagor_1.png"
       },
       {
         "title": "Batagor Lebih Enak",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Bandung/batagor/batagor_2.png"
+        "img": "/img/shops/Bandung/Batagor/Batagor_2.png"
       },
       {
         "title": "Batagor Paling Enak",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Bandung/batagor/batagor_3.png"
+        "img": "/img/shops/Bandung/Batagor/Batagor_3.png"
       }
     ],
     "Siomay":[
@@ -44,19 +44,19 @@
         "title": "Siomay Boss",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Bandung/siomay/siomay_1.png"
+        "img": "/img/shops/Bandung/Siomay/Siomay_1.png"
       },
       {
         "title": "Siomay Heaven",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Bandung/siomay/siomay_2.png"
+        "img": "/img/shops/Bandung/Siomay/Siomay_2.png"
       },
       {
         "title": "Siomay Station",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Bandung/siomay/siomay_3.png"
+        "img": "/img/shops/Bandung/Siomay/Siomay_3.png"
       }
     ]
   },
@@ -66,19 +66,19 @@
         "title": "Bakpia Legit",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jogja/bakpia/bakpia_1.png"
+        "img": "/img/shops/Jogja/Bakpia/Bakpia_1.png"
       },
       {
         "title": "Bakpia Lebih Legit",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jogja/bakpia/bakpia_2.png"
+        "img": "/img/shops/Jogja/Bakpia/Bakpia_2.png"
       },
       {
         "title": "Bakpia Legit Banget",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jogja/bakpia/bakpia_3.png"
+        "img": "/img/shops/Jogja/Bakpia/Bakpia_3.png"
       }
     ],
     "SateKlatak":[
@@ -106,19 +106,19 @@
         "title": "Gudeg",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jogja/gudeg/gudeg_1.png"
+        "img": "/img/shops/Jogja/Gudeg/Gudeg_1.png"
       },
       {
         "title": "Gudegh",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jogja/gudeg/gudeg_2.png"
+        "img": "/img/shops/Jogja/Gudeg/Gudeg_2.png"
       },
       {
         "title": "Gudeghhh",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jogja/gudeg/gudeg_3.png"
+        "img": "/img/shops/Jogja/Gudeg/Gudeg_3.png"
       }
     ]
   },
@@ -148,19 +148,19 @@
         "title": "Ketoprak Rasa",
         "road": "Jalan Moh. Toha",
         "stars": 2,
-        "img": "/img/shops/Jakarta/ketoprak/ketoprak_1.png"
+        "img": "/img/shops/Jakarta/Ketoprak/Ketoprak_1.png"
       },
       {
         "title": "Ketoprak Jaya",
         "road": "Jalan Moh. Oha",
         "stars": 3,
-        "img": "/img/shops/Jakarta/ketoprak/ketoprak_2.png"
+        "img": "/img/shops/Jakarta/Ketoprak/Ketoprak_2.png"
       },
       {
         "title": "Ketoprak Makmur",
         "road": "Jalan Moh. Aha",
         "stars": 4,
-        "img": "/img/shops/Jakarta/ketoprak/ketoprak_3.png"
+        "img": "/img/shops/Jakarta/Ketoprak/Ketoprak_3.png"
       }
     ],
     "KerakTelor":[

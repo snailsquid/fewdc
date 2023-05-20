@@ -28,15 +28,17 @@ const Card = ({ right, title, desc, img, delay }) => {
         }}
         initial={{ translateY: -100, opacity: 0 }}
         animate={{ translateY: 0, opacity: 100 }}
-        className="flex justify-center gap-4 max-w-[32rem]"
+        className="flex justify-center md:flex-row flex-col-reverse gap-4 md:gap-7 max-w-[32rem] z-10 relative"
       >
         <div className="flex flex-col justify-center text-welcome-text">
-          <h2 className={`${baloo.className} text-[#FE7759]`}>{title}</h2>
+          <h3 className={`text-xl ${baloo.className} text-[#FE7759]`}>
+            {title}
+          </h3>
           <h3 className="font-semibold text-sm text-welcome-text">{desc}</h3>
         </div>
         <div className="bg-[#f5f5f] p-5 rounded-xl outline-1 outline h-fit outline-white neumorph">
           <div
-            className="bg-cover w-32 h-32 rounded-xl "
+            className="bg-cover w-ful md:w-32 h-32 rounded-xl "
             style={{ backgroundImage: `url(${img})` }}
           ></div>
         </div>
@@ -53,16 +55,18 @@ const Card = ({ right, title, desc, img, delay }) => {
         }}
         initial={{ translateY: -100, opacity: 0 }}
         animate={{ translateY: 0, opacity: 100 }}
-        className="flex justify-center gap-4 max-w-[32rem]"
+        className="flex justify-center md:flex-row flex-col gap-4 md:gap-7 max-w-[32rem] z-10 relative"
       >
         <div className="bg-[#f5f5f] p-5 rounded-xl outline-1 outline h-fit outline-white neumorph">
           <div
-            className="bg-cover w-32  h-32 rounded-xl "
+            className="bg-cover w-ful md:w-32 h-32 rounded-xl "
             style={{ backgroundImage: `url(${img})` }}
           ></div>
         </div>
         <div className="flex flex-col justify-center text-welcome-text">
-          <h2 className={`${baloo.className}  text-[#FE7759]`}>{title}</h2>
+          <h3 className={`text-xl ${baloo.className}  text-[#FE7759]`}>
+            {title}
+          </h3>
           <h3 className="font-semibold text-sm  text-welcome-text">{desc}</h3>
         </div>
       </motion.div>
@@ -73,7 +77,18 @@ export default function Page() {
   return (
     <div className={`${poppins.className}`}>
       <Nav mtc={"#3d8294"} selected={"about"}></Nav>
-      <div className="pt-32 flex gap-5 flex-col w-full items-center px-10">
+      <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
+      <div className="pt-32 flex gap-5 flex-col w-full items-center px-10 pb-16">
+        <div className="flex flex-col items-center">
+          <img src="/img/logo.png" className=" w-1/3" alt="it's the logo" />
+          <span
+            className={`${baloo.className} text-center text-xl text-[#FE7759]`}
+          >
+            KaKha adalah sarana digital <br /> untuk mensupport UMKM disekitar
+            anda.
+          </span>
+        </div>
         <Card
           title="Potensi UMKM Kuliner"
           desc={
