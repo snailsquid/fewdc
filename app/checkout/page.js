@@ -28,6 +28,7 @@ function Card({ title, desc, img }) {
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-10">
         <span className={`flex flex-row ${baloo.className} gap-2`}>
           <motion.div
+            whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
             className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer "
           >
@@ -35,6 +36,7 @@ function Card({ title, desc, img }) {
           </motion.div>
           <div>4</div>
           <motion.div
+            whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
             className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer"
           >
@@ -171,6 +173,7 @@ export default function Page() {
         <motion.div
           initial={{ translateY: -100, opacity: 0 }}
           animate={{ translateY: 0, opacity: 100 }}
+          whileTap={{ scale: 0.9 }}
           transition={{
             type: "spring",
             stiffness: 300,

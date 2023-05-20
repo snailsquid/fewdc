@@ -3,12 +3,28 @@ import Link from "next/link";
 import { Montserrat, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import { NumericFormat } from "react-number-format";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import menu from "../../../public/menu.json";
 import Nav from "../../components/nav";
 import { useEffect, useState } from "react";
 
-const Card = ({ title, price, img, desc, index }) => {
+const Card = ({
+  title,
+  price,
+  img,
+  desc,
+  index,
+  setCart,
+  setPrice,
+  pricee,
+  cart,
+}) => {
+  const [localCart, setLocalCart] = useState(0);
+  useEffect(() => {
+    if (localCart) {
+      console.log(localCart);
+    }
+  }, [localCart]);
   return (
     <motion.div
       initial={{ translateY: -100, opacity: 0 }}
@@ -33,7 +49,7 @@ const Card = ({ title, price, img, desc, index }) => {
       <div className="w-full flex gap-1 flex-col">
         <h2 className="text-welcome-text font-bold">{title}</h2>
         <h5 className="text-[#727171] text-sm">{desc}</h5>
-        <h2 className="mt-4 text-[#FE7759] font-bold flex flex-row justify-between">
+        <h2 className="mt-4 text-[#FE7759] font-bold flex flex-row justify-between relative">
           <NumericFormat
             value={price}
             thousandSeparator={true}
@@ -42,11 +58,47 @@ const Card = ({ title, price, img, desc, index }) => {
             className="bg-transparent w-fit"
           />
           <motion.div
+            onClick={() => {
+              setCart(cart + 1);
+              setPrice(price + pricee);
+              setLocalCart(localCart + 1);
+            }}
+            animate={{ scale: localCart > 0 ? 0 : 1 }}
             whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className={`bg-[#FECB89] text-sm font-thin flex items-center px-3 rounded-full text-welcome-text cursor-pointer ${baloo.className}`}
           >
             Add
           </motion.div>
+
+          <motion.span
+            animate={{ scale: localCart > 0 ? 1 : 0 }}
+            className={`flex absolute right-0 flex-row ${baloo.className} text-welcome-text gap-2`}
+          >
+            <motion.div
+              onClick={() => {
+                setLocalCart(localCart - 1);
+                setCart(cart - 1);
+              }}
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+              className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer "
+            >
+              -
+            </motion.div>
+            <div>{localCart}</div>
+            <motion.div
+              onClick={() => {
+                setLocalCart(localCart + 1);
+                setCart(cart + 1);
+              }}
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+              className="rounded-full bg-[#FECB89] p-2 w-6 h-6 justify-center flex items-center cursor-pointer"
+            >
+              +
+            </motion.div>
+          </motion.span>
         </h2>
       </div>
     </motion.div>
@@ -79,6 +131,9 @@ export default function Page({ params, searchParams }) {
   const title = searchParams.title;
   const index = Number(searchParams.index) + 1;
   const city = searchParams.city;
+
+  const [cart, setCart] = useState(0);
+  const [price, setPrice] = useState(0);
 
   let starsList = [];
   let countStars = stars;
@@ -173,6 +228,7 @@ export default function Page({ params, searchParams }) {
               </div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className={`bg-white rounded-full text-sm text-main-text px-3 cursor-pointer py-1 ${baloo.className}`}
               >
                 Pakai
@@ -206,6 +262,7 @@ export default function Page({ params, searchParams }) {
               <motion.div
                 className={`bg-white rounded-full text-sm text-main-text px-3 py-1 cursor-pointer ${baloo.className}`}
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 Pakai
               </motion.div>
@@ -241,21 +298,37 @@ export default function Page({ params, searchParams }) {
                     desc={item.desc}
                     price={10000}
                     img={item.img}
+                    setCart={setCart}
+                    setPrice={setPrice}
+                    pricee={price}
+                    cart={cart}
                   />
                 );
               })}
             </div>
           ))}
         </div>
-        <div className="fixed bottom-0  w-full left-0 flex justify-center">
-          <Link
-            href={"/checkout"}
-            className="bg-[#FECB89] cursor-pointer hover:-translate-y-1 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between "
+        <AnimatePresence initial={false}>
+          <motion.div
+            whileTap={{ scale: 0.9 }}
+            initial={{ y: 0 }}
+            animate={{ y: cart > 0 ? 0 : 100 }}
+            className="fixed bottom-0  w-full left-0 flex justify-center"
           >
-            <span>8 Items</span>
-            <span>Rp100.000</span>
-          </Link>
-        </div>
+            <Link
+              href={"/checkout"}
+              className="bg-[#FECB89] cursor-pointer hover:-translate-y-1 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between "
+            >
+              <span>{cart} Items</span>
+              <NumericFormat
+                value={price}
+                thousandSeparator
+                prefix={"Rp"}
+                displayType={"text"}
+              ></NumericFormat>
+            </Link>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );

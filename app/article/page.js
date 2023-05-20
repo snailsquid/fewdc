@@ -22,6 +22,7 @@ const poppins = Poppins({
 function Card({ img, title, desc, link, delay }) {
   return (
     <motion.div
+      whileTap={{ scale: 0.9 }}
       whileHover={{
         translateY: -5,
         transition: { type: "spring", stiffness: 400, damping: 17 },

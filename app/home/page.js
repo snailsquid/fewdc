@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Montserrat, Poppins } from "next/font/google";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
+import { Pagination, Navigation } from "swiper";
 import Link from "next/link";
 import {
   motion,
@@ -193,7 +194,6 @@ export default function Page() {
   const [transY, setTransY] = useState(0);
 
   const { scrollY } = useScroll();
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     setTransY(latest);
   });
@@ -274,9 +274,9 @@ export default function Page() {
     <main
       className={`bg-page-bg w-full h-screen ${montserrat.className} flex justify-center`}
     >
-      <Nav mtc={mtc} selected={"home"}></Nav>
-
-      <AnimatePresence initial={false}>
+      {" "}
+      <AnimatePresence initial={false} mode={"wait"}>
+        <Nav mtc={mtc} selected={"home"}></Nav>
         <div
           className="absolute h-full w-full z-30 wrapper"
           style={{
@@ -425,124 +425,131 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-      </AnimatePresence>
-      <div className="text-welcome-text relative w-full max-w-[1441px] h-full z-10 px-5 lg:px-20 flex pt-32 lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
-        <div className="items-center flex-[5] lg:h-full lg:items-start  justify-center flex flex-col relative z-10">
-          <div>
-            <motion.div
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-                delay: 0,
-              }}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 100 }}
-              className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
-            >
-              <div>Kangen Kampung</div>
-              <div>Halaman?</div>
-            </motion.div>
-            <motion.div
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-                delay: 0.1,
-              }}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 100 }}
-              className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8"
-            >
-              <div>Cari makanan khas</div>
-              <div>sekitarmu</div>
-            </motion.div>
-            <motion.div
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-                delay: 0.2,
-              }}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 100 }}
-            >
-              <div
-                className="px-8 w-64  text-welcome-text rounded-xl py-2 outline-1 outline outline-welcome-text justify-between items-center mt-5 flex"
-                onClick={() => {
-                  setDrop(!drop);
+        <div className="text-welcome-text relative w-full max-w-[1441px] h-full z-10 px-5 lg:px-20 flex pt-32 lg:h-full p-10 flex-col lg:flex-row justify-center xl:justify-center items-center gap-0 lg:gap-28">
+          <div className="items-center flex-[5] lg:h-full lg:items-start  justify-center flex flex-col relative z-10">
+            <div>
+              <motion.div
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: 0,
                 }}
+                initial={{ translateY: -100, opacity: 0 }}
+                animate={{ translateY: 0, opacity: 100 }}
+                className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
               >
-                {dropdown}
-                <img src="/img/dropdown.svg" className="h-3 " alt="" />
-              </div>
-              <div
-                style={{ scale: drop ? "1" : "0" }}
-                className="absolute bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
-                onClick={() => {
-                  setDropdown(
-                    dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
-                  );
-                  setDrop(false);
+                <div>Kangen Kampung</div>
+                <div>Halaman?</div>
+              </motion.div>
+              <motion.div
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: 0.1,
                 }}
+                initial={{ translateY: -100, opacity: 0 }}
+                animate={{ translateY: 0, opacity: 100 }}
+                className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8"
               >
-                Bandung
-              </div>
-            </motion.div>
+                <div>Cari makanan khas</div>
+                <div>sekitarmu</div>
+              </motion.div>
+              <motion.div
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: 0.2,
+                }}
+                initial={{ translateY: -100, opacity: 0 }}
+                animate={{ translateY: 0, opacity: 100 }}
+              >
+                <div
+                  className="px-8 w-64  text-welcome-text rounded-xl py-2 outline-1 outline outline-welcome-text justify-between items-center mt-5 flex"
+                  onClick={() => {
+                    setDrop(!drop);
+                  }}
+                >
+                  {dropdown}
+                  <motion.img
+                    animate={{ rotate: drop ? 0 : -90 }}
+                    src="/img/dropdown.svg"
+                    className="h-3 "
+                    alt=""
+                  />
+                </div>
+                <div
+                  style={{ scale: drop ? "1" : "0" }}
+                  className="absolute bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
+                  onClick={() => {
+                    setDropdown(
+                      dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
+                    );
+                    setDrop(false);
+                  }}
+                >
+                  Bandung
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-        <div className="h-full flex w-fit flex-1  max-w-[48rem] justify-center items-center">
-          <Swiper
-            slidesPerView={screen > 640 ? 3 : 2}
-            spaceBetween={20}
-            className="w-[22rem] sm:w-[37rem] sm:!overflow-visible"
-          >
-            <SwiperSlide className="py-10 w-fit">
-              <Slide
-                setOpen={setOpen}
-                setCity={setCity}
-                setSelected={setSelected}
-                set={setmtc}
-                bgColor={"#FECB89"}
-                textColor={"#D08748"}
-                img="/img/Batagor.png"
-                title="Bandung"
-                desc="Makanan khas Bandung"
-                delay={0}
-              ></Slide>
-            </SwiperSlide>
+          <div className="h-full flex w-fit flex-1  max-w-[48rem] justify-center items-center">
+            <Swiper
+              slidesPerView={screen > 640 ? 3 : 2}
+              spaceBetween={20}
+              className="w-[22rem] sm:w-[37rem] sm:!overflow-visible"
+              modules={[Pagination, Navigation]}
+              pagination={{ clickable: true }}
+            >
+              <SwiperSlide className="py-10 w-fit">
+                <Slide
+                  setOpen={setOpen}
+                  setCity={setCity}
+                  setSelected={setSelected}
+                  set={setmtc}
+                  bgColor={"#FECB89"}
+                  textColor={"#D08748"}
+                  img="/img/Batagor.png"
+                  title="Bandung"
+                  desc="Makanan khas Bandung"
+                  delay={0}
+                ></Slide>
+              </SwiperSlide>
 
-            <SwiperSlide className="py-10">
-              <Slide
-                set={setmtc}
-                setOpen={setOpen}
-                setCity={setCity}
-                setSelected={setSelected}
-                bgColor={"#D3A48F"}
-                textColor={"#755040"}
-                img="/img/SateKlatak.png"
-                title="Jogja"
-                desc="Makanan khas Jogja"
-                delay={0.1}
-              ></Slide>
-            </SwiperSlide>
-            <SwiperSlide className="py-10">
-              <Slide
-                bgColor={"#8FC8C2"}
-                set={setmtc}
-                setOpen={setOpen}
-                setCity={setCity}
-                setSelected={setSelected}
-                textColor={"#314D4A"}
-                img="/img/SotoBetawi.png"
-                title="Jakarta"
-                desc="Makanan khas Jakarta"
-                delay={0.2}
-              ></Slide>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      </div>
+              <SwiperSlide className="py-10">
+                <Slide
+                  set={setmtc}
+                  setOpen={setOpen}
+                  setCity={setCity}
+                  setSelected={setSelected}
+                  bgColor={"#D3A48F"}
+                  textColor={"#755040"}
+                  img="/img/SateKlatak.png"
+                  title="Jogja"
+                  desc="Makanan khas Jogja"
+                  delay={0.1}
+                ></Slide>
+              </SwiperSlide>
+              <SwiperSlide className="py-10">
+                <Slide
+                  bgColor={"#8FC8C2"}
+                  set={setmtc}
+                  setOpen={setOpen}
+                  setCity={setCity}
+                  setSelected={setSelected}
+                  textColor={"#314D4A"}
+                  img="/img/SotoBetawi.png"
+                  title="Jakarta"
+                  desc="Makanan khas Jakarta"
+                  delay={0.2}
+                ></Slide>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>{" "}
+      </AnimatePresence>
       <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
       <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
     </main>

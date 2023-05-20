@@ -24,7 +24,7 @@ export default function Page() {
 
       <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
       <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
-      <div className="flex items-center h-full justify-center gap-2 lg:gap-5 flex-col text-welcome-text">
+      <div className="flex items-center h-full justify-center gap-2 lg:gap-5 flex-col text-welcome-text px-10 z-10 relative">
         <motion.img
           src="/img/Approve.png"
           alt=""
@@ -63,6 +63,19 @@ export default function Page() {
           className={`text-lg md:text-xl text-center  font-medium`}
         >
           Terima kasih! <br /> Karena telah mendukung UMKM di sekitarmu
+        </motion.h3>
+        <motion.h3
+          initial={{ translateY: -100, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 100 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 17,
+            delay: 0,
+          }}
+          className={`text-[#608B86] md:text-xl text-center  font-medium`}
+        >
+          Cek whatsapp untuk melacak pesananmu
         </motion.h3>
       </div>
     </div>
