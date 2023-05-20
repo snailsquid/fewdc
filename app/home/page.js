@@ -310,7 +310,7 @@ export default function Page() {
             </motion.h1>
 
             <motion.div
-              className="absolute w-full px-16 lg:px-64 md:px-32 "
+              className="absolute h-full flex justify-center items-center w-full px-16 lg:px-64 md:px-32 "
               style={{ y: transY * 0.5 }}
             >
               <motion.img
