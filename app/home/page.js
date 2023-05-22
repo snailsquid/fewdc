@@ -141,7 +141,7 @@ const Slide = ({
       className="xl:h-64 w-full max-w-[12rem] p-2 sm:p-3 h-64 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
-        setCity(title);
+        setCity(desc);
         set(textColor);
         setOpen(true);
       }}
@@ -191,7 +191,7 @@ export default function Page() {
   const [dropdown, setDropdown] = useState("Pilih lokasimu");
   const [mtc, setmtc] = useState("#3d8294");
   const [bgc, setbgc] = useState("#fccb8e");
-  const [selected, setSelected] = useState("Batagor");
+  const [selected, setSelected] = useState("Surabi");
   const [city, setCity] = useState("Bandung");
   const [screen, setScreen] = useState();
   const [items, setItems] = useState(["Surabi", "Batagor", "Siomay"]);
@@ -486,12 +486,12 @@ export default function Page() {
                     alt=""
                   />
                 </div>
-                <div
-                  style={{ scale: drop ? "1" : "0" }}
-                  className="absolute mt-2 bg-welcome-text rounded-xl"
+                <motion.div
+                  animate={{ height: drop ? "auto" : 0 }}
+                  className="relative bottom-0 mt-2 bg-welcome-text rounded-xl overflow-y-hidden"
                 >
                   <div
-                    className=" rounded-t-xl py-2 px-8 w-64 hover:bg-[#275561] text-white transition-all"
+                    className=" rounded-t-xl py-2 px-8 w-64 hover:bg-[#275561] text-white"
                     onClick={() => {
                       setDropdown("Kota Semarang");
                       setDrop(false);
@@ -500,7 +500,7 @@ export default function Page() {
                     Kota Semarang
                   </div>
                   <div
-                    className=" rounded-b-xl py-2 px-8 w-64 hover:bg-[#275561] text-white transition-all"
+                    className=" rounded-b-xl py-2 px-8 w-64 hover:bg-[#275561] text-white"
                     onClick={() => {
                       setDropdown("Kota Bogor");
                       setDrop(false);
@@ -508,7 +508,7 @@ export default function Page() {
                   >
                     Kota Bogor
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
