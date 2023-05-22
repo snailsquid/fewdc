@@ -177,7 +177,7 @@ export default function Page({ params, searchParams }) {
             <div
               className="h-32 bg-cover bg-center rounded-xl"
               style={{
-                backgroundImage: `url(/img/shops/${city}/${food}/${food}_${index}.png)`,
+                backgroundImage: `url('/img/shops/${city}/${food}/${food}_${index}.png')`,
               }}
             ></div>
             <h1 className={`text-main-text font-extrabold text-lg`}>{title}</h1>
