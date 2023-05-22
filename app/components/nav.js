@@ -34,10 +34,19 @@ export default function Nav({ mtc, selected }) {
         padding: scroll ? [40, 16] : [40, 40],
       }}
     >
-      <img
-        className="invisible w-12 absolute lg:relative lg:visible"
-        src={"/img/logo.png"}
-      ></img>
+      <Link
+        href="/home"
+        onClick={() => {
+          if (selected == "home") {
+            window.location.reload();
+          }
+        }}
+      >
+        <img
+          className="invisible w-12 absolute lg:relative lg:visible"
+          src={"/img/logo.png"}
+        ></img>
+      </Link>
       <div
         className="flex gap-12 text-md lg:text-xl font-bold"
         style={{ color: mtc }}
@@ -72,6 +81,15 @@ export default function Nav({ mtc, selected }) {
             href="/article"
           >
             Artikel
+          </Link>
+        </motion.h3>
+        <motion.h3 whileHover={{ scale: 1.05 }}>
+          <Link
+            className={`hover:text-[#4B9AAE] before:bg-welcome-text`}
+            style={{ color: "#8f634f" }}
+            href="/login"
+          >
+            Logout
           </Link>
         </motion.h3>
       </div>
