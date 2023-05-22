@@ -138,7 +138,7 @@ const Slide = ({
         },
       }}
       whileTap={{ scale: 0.9 }}
-      className="xl:h-64 w-full max-w-[12rem] p-2 sm:p-0 h-64 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center hover:translatex-2 rounded-3xl"
+      className="xl:h-64 w-full max-w-[12rem] p-2 sm:p-3 h-64 md:h-64 md:w-48 flex items-center xl:w-48 cursor-pointer justify-center flex-col z-10 relative text-center hover:translatex-2 rounded-3xl"
       style={{ backgroundColor: bgColor }}
       onClick={() => {
         setCity(title);
@@ -152,12 +152,15 @@ const Slide = ({
         src={img}
       />
       <div
-        className={`${baloo.className} text-2xl md:text-3xl relative z-10`}
+        className={`${baloo.className} text-2xl md:text-2xl relative z-10`}
         style={{ color: textColor }}
       >
         {title}
       </div>
-      <div style={{ color: textColor }} className="text-sm relative z-10">
+      <div
+        style={{ color: textColor }}
+        className="text-lg font-bold relative z-10"
+      >
         {desc}
       </div>
     </motion.div>
@@ -277,7 +280,7 @@ export default function Page() {
       className={`bg-page-bg w-full h-screen ${montserrat.className} flex justify-center`}
     >
       {" "}
-      <AnimatePresence initial={false} mode={"wait"}>
+      <AnimatePresence mode={"wait"}>
         <Nav mtc={mtc} selected={"home"}></Nav>
         <div
           className="absolute h-full w-full z-30 wrapper"
@@ -440,10 +443,10 @@ export default function Page() {
                 }}
                 initial={{ translateY: -100, opacity: 0 }}
                 animate={{ translateY: 0, opacity: 100 }}
-                className={`${baloo.className} text-4xl md:text-6xl text-home-text`}
+                className={`${baloo.className} text-4xl sm:text-5xl md:text-6xl text-center lg:text-left text-home-text`}
               >
-                <div>Kangen Kampung</div>
-                <div>Halaman?</div>
+                <div>Jelajahi Kuliner</div>
+                <div>Khas Nusantara</div>
               </motion.div>
               <motion.div
                 transition={{
@@ -454,10 +457,9 @@ export default function Page() {
                 }}
                 initial={{ translateY: -100, opacity: 0 }}
                 animate={{ translateY: 0, opacity: 100 }}
-                className=" font-semibold text-2xl flex flex-col mt-5 md:mt-8"
+                className=" font-semibold text-xl sm:text-2xl text-center lg:text-left flex flex-col mt-5 md:mt-8"
               >
-                <div>Cari makanan khas</div>
-                <div>sekitarmu</div>
+                <div>Gak pake ribet, cari disini aja</div>
               </motion.div>
               <motion.div
                 transition={{
@@ -468,6 +470,7 @@ export default function Page() {
                 }}
                 initial={{ translateY: -100, opacity: 0 }}
                 animate={{ translateY: 0, opacity: 100 }}
+                className="flex flex-col justify-center items-center lg:items-start"
               >
                 <div
                   className="px-8 w-64  text-welcome-text rounded-xl py-2 outline-1 outline outline-welcome-text justify-between items-center mt-5 flex"
@@ -485,15 +488,26 @@ export default function Page() {
                 </div>
                 <div
                   style={{ scale: drop ? "1" : "0" }}
-                  className="absolute bg-welcome-text rounded-xl py-2 px-8 w-64 hover:bg-[#275561] text-white mt-2 transition-all"
-                  onClick={() => {
-                    setDropdown(
-                      dropdown == "Bandung" ? "Pilih Lokasimu" : "Bandung"
-                    );
-                    setDrop(false);
-                  }}
+                  className="absolute mt-2 bg-welcome-text rounded-xl"
                 >
-                  Bandung
+                  <div
+                    className=" rounded-t-xl py-2 px-8 w-64 hover:bg-[#275561] text-white transition-all"
+                    onClick={() => {
+                      setDropdown("Kota Semarang");
+                      setDrop(false);
+                    }}
+                  >
+                    Kota Semarang
+                  </div>
+                  <div
+                    className=" rounded-b-xl py-2 px-8 w-64 hover:bg-[#275561] text-white transition-all"
+                    onClick={() => {
+                      setDropdown("Kota Bogor");
+                      setDrop(false);
+                    }}
+                  >
+                    Kota Bogor
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -515,8 +529,8 @@ export default function Page() {
                   bgColor={"#FECB89"}
                   textColor={"#D08748"}
                   img="/img/Batagor.png"
-                  title="Bandung"
-                  desc="Makanan khas Bandung"
+                  title="Makanan Khas"
+                  desc="Bandung"
                   delay={0}
                 ></Slide>
               </SwiperSlide>
@@ -530,8 +544,8 @@ export default function Page() {
                   bgColor={"#D3A48F"}
                   textColor={"#755040"}
                   img="/img/SateKlatak.png"
-                  title="Jogja"
-                  desc="Makanan khas Jogja"
+                  title="Makanan Khas"
+                  desc="Jogja"
                   delay={0.1}
                 ></Slide>
               </SwiperSlide>
@@ -544,8 +558,8 @@ export default function Page() {
                   setSelected={setSelected}
                   textColor={"#314D4A"}
                   img="/img/SotoBetawi.png"
-                  title="Jakarta"
-                  desc="Makanan khas Jakarta"
+                  title="Makanan Khas"
+                  desc="Jakarta"
                   delay={0.2}
                 ></Slide>
               </SwiperSlide>

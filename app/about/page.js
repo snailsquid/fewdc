@@ -81,13 +81,33 @@ export default function Page() {
       <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
       <div className="pt-32 flex gap-5 flex-col w-full items-center px-10 pb-16">
         <div className="flex flex-col items-center">
-          <img src="/img/logo.png" className=" w-1/3" alt="it's the logo" />
-          <span
-            className={`${baloo.className} text-center text-xl text-[#FE7759]`}
+          <motion.img
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20,
+              delay: 0,
+            }}
+            initial={{ translateY: -100, opacity: 0 }}
+            animate={{ translateY: 0, opacity: 100 }}
+            src="/img/logo.png"
+            className=" w-1/3"
+            alt="it's the logo"
+          />
+          <motion.span
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20,
+              delay: 0.05,
+            }}
+            initial={{ translateY: -100, opacity: 0 }}
+            animate={{ translateY: 0, opacity: 100 }}
+            className={`${baloo.className} text-center text-2xl text-[#FE7759]`}
           >
             KaKha adalah sarana digital <br /> untuk mensupport UMKM disekitar
             anda.
-          </span>
+          </motion.span>
         </div>
         <Card
           title="Potensi UMKM Kuliner"

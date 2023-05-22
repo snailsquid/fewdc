@@ -42,32 +42,38 @@ export default function Nav({ mtc, selected }) {
         className="flex gap-12 text-md lg:text-xl font-bold"
         style={{ color: mtc }}
       >
-        <Link
-          className={`before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text`}
-          style={{ color: selected == "home" ? "#245562" : mtc }}
-          href="/home"
-          onClick={() => {
-            if (selected == "home") {
-              window.location.reload();
-            }
-          }}
-        >
-          Beranda
-        </Link>
-        <Link
-          className={`before:absolute before:w-0 before:bottom-9 hover:before:w-36 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text whitespace-nowrap`}
-          style={{ color: selected == "about" ? "#245562" : mtc }}
-          href="/about"
-        >
-          Tentang Kami
-        </Link>
-        <Link
-          className={`before:absolute before:w-0 before:bottom-9 hover:before:w-20 before:transition-all hover:text-[#4B9AAE] before:h-1 before:bg-welcome-text`}
-          style={{ color: selected == "article" ? "#245562" : mtc }}
-          href="/article"
-        >
-          Artikel
-        </Link>
+        <motion.h3 whileHover={{ scale: 1.05 }}>
+          <Link
+            className={`hover:text-white before:bg-welcome-text`}
+            style={{ color: selected == "home" ? "#245562" : mtc }}
+            href="/home"
+            onClick={() => {
+              if (selected == "home") {
+                window.location.reload();
+              }
+            }}
+          >
+            Beranda
+          </Link>
+        </motion.h3>
+        <motion.h3 whileHover={{ scale: 1.05 }}>
+          <Link
+            className={`hover:text-[#4B9AAE] before:bg-welcome-text whitespace-nowrap`}
+            style={{ color: selected == "about" ? "#245562" : mtc }}
+            href="/about"
+          >
+            Tentang Kami
+          </Link>
+        </motion.h3>
+        <motion.h3 whileHover={{ scale: 1.05 }}>
+          <Link
+            className={`hover:text-[#4B9AAE] before:bg-welcome-text`}
+            style={{ color: selected == "article" ? "#245562" : mtc }}
+            href="/article"
+          >
+            Artikel
+          </Link>
+        </motion.h3>
       </div>
     </motion.nav>
   );
