@@ -445,8 +445,8 @@ export default function Page() {
                 animate={{ translateY: 0, opacity: 100 }}
                 className={`${baloo.className} text-4xl sm:text-5xl md:text-6xl text-center lg:text-left text-home-text`}
               >
-                <div>Jelajahi Kuliner</div>
                 <div>Khas Nusantara</div>
+                <div>Jelajahi Kuliner</div>
               </motion.div>
               <motion.div
                 transition={{
