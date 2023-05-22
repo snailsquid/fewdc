@@ -64,7 +64,7 @@ const Card = ({
               setLocalCart(localCart + 1);
             }}
             animate={{ scale: localCart > 0 ? 0 : 1 }}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: localCart > 0 ? 0 : 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={`bg-[#FECB89] text-sm font-thin flex items-center px-3 rounded-full text-welcome-text cursor-pointer ${baloo.className}`}
           >
@@ -79,6 +79,7 @@ const Card = ({
               onClick={() => {
                 setLocalCart(localCart - 1);
                 setCart(cart - 1);
+                setPrice(pricee - price);
               }}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
@@ -91,6 +92,7 @@ const Card = ({
               onClick={() => {
                 setLocalCart(localCart + 1);
                 setCart(cart + 1);
+                setPrice(pricee + price);
               }}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
