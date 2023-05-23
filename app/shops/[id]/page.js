@@ -312,23 +312,28 @@ export default function Page({ params, searchParams }) {
         </div>
         <AnimatePresence initial={false}>
           <motion.div
-            whileTap={{ scale: 0.9 }}
             initial={{ y: 0 }}
             animate={{ y: cart > 0 ? 0 : 100 }}
             className="fixed bottom-0  w-full left-0 flex justify-center"
           >
-            <Link
-              href={"/checkout"}
-              className="bg-[#FECB89] cursor-pointer hover:-translate-y-1 transition-all text-welcome-text font-bold max-w-lg w-full rounded-full py-3 px-10 mx-3 my-5 flex justify-between "
+            <motion.div
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ translateY: -5 }}
+              className="max-w-lg w-full rounded-full mx-3 my-5"
             >
-              <span>{cart} Items</span>
-              <NumericFormat
-                value={price}
-                thousandSeparator
-                prefix={"Rp"}
-                displayType={"text"}
-              ></NumericFormat>
-            </Link>
+              <Link
+                href={"/checkout"}
+                className="bg-[#FECB89] cursor-pointer w-full h-full rounded-full  py-3 px-10 text-welcome-text font-bold  flex justify-between "
+              >
+                <span>{cart} Items</span>
+                <NumericFormat
+                  value={price}
+                  thousandSeparator
+                  prefix={"Rp"}
+                  displayType={"text"}
+                ></NumericFormat>
+              </Link>
+            </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
