@@ -138,14 +138,7 @@ export default function Page() {
                 warm
                 img="/img/food_article.png"
                 title="Food Article"
-                desc="sketahui lebih dalam tentang makanan khas Indonesia"
-              ></Slide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Slide
-                img="/img/food_recipe.png"
-                title="Food Recipe"
-                desc="coba buat sendiri di rumah yuk :)"
+                desc="ketahui lebih dalam tentang makanan khas Indonesia"
               ></Slide>
             </SwiperSlide>
           </Swiper>
