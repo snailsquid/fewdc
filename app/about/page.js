@@ -76,6 +76,8 @@ const Card = ({ right, title, desc, img, delay }) => {
 export default function Page() {
   return (
     <div className={`${poppins.className}`}>
+      {" "}
+      <title>KaKha - Kuliner khas Indonesia</title>
       <Nav mtc={"#3d8294"} selected={"about"}></Nav>
       <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
       <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>

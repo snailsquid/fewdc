@@ -72,6 +72,8 @@ export default function Page() {
   }, [route]);
   return (
     <main className={`bg-page-bg h-screen w-screen ${poppins.className}`}>
+      <title>KaKha - Kuliner khas Indonesia</title>
+
       <div className="text-welcome-text relative z-10 flex lg:h-full p-10 flex-col lg:flex-row justify-center items-center gap-0 lg:gap-28">
         <div className="items-center h-screen lg:h-full md:items-start justify-center flex flex-col py-5">
           <div>

@@ -153,11 +153,9 @@ export default function Page({ params, searchParams }) {
   }
   return (
     <div className={`w-screen h-fit bg-[#F5F5F5] ${montserrat.className}`}>
-      <Nav mtc={"#3d8294"}></Nav>
-
+      <Nav mtc={"#3d8294"}></Nav> <title>KaKha - Kuliner khas Indonesia</title>
       <div className="fixed left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2682a] blur-3xl"></div>
       <div className="fixed top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
-
       <div
         className={`${poppins.className} w-full px-10 py-24 lg:py-36 flex flex-col md:flex-row justify-center gap-5 relative z-10`}
       >

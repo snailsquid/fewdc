@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import cities from "../../public/cities.json";
 import Nav from "../components/nav";
+import Head from "next/head";
 
 const Shop = ({ img, title, stars, road, mtc, food, index, city, id }) => {
   let starsList = [];
@@ -279,7 +280,7 @@ export default function Page() {
     <main
       className={`bg-page-bg w-full h-screen ${montserrat.className} flex justify-center`}
     >
-      {" "}
+      <title>KaKha - Kuliner khas Indonesia</title>
       <AnimatePresence mode={"wait"}>
         <Nav mtc={mtc} selected={"home"}></Nav>
         <div

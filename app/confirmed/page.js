@@ -21,6 +21,7 @@ export default function Page() {
   return (
     <div className={`w-screen bg-[#f5f5f5] h-screen ${poppins.className}`}>
       <Nav mtc={"#3d8294"}></Nav>
+      <title>KaKha - Kuliner khas Indonesia</title>
 
       <div className="absolute left-0 bottom-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f2e2688e] blur-3xl"></div>
       <div className="absolute top-0 right-0 w-32 h-32 lg:w-96 lg:h-96 flex z-0  bg-[#f0b6ab73] blur-3xl"></div>
